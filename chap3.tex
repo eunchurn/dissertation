@@ -1,8 +1,9 @@
 %!TEX encoding = UTF-8 Unicode
 %\part{Design of Excitation System}
 \chapter{Design of Excitation System for Simulating Dynamic Loads}
-\section{Design of an Actuator for Simulating Wind Response}
 \label{chap:6}
+\section{Design of an Actuator for Simulating Wind Response}
+
 
 In this section, simulation of wind induced responses of a building structure using linear mass shaker (LMS) and active tuned mass damper (ATMD) as actuator is conducted as shown in Figure~\ref{fig:6-1}. In order for the linear actuator to keep the structure in the target response trajectory, an inverse transfer function of a structural response to the shaker force is obtained using a state space form governing equation of the structure and the discrete Fourier transform of structural response is performed. Filter and envelop function are used such that the error between wind and actuator induced responses is minimized by preventing the shaker from actuating unexpected modal responses and initial transient responses. The effectiveness of the proposed method is verified through a numerical example of a 76 story-benchmark building excited by wind load of which deterministic time history is given. The effect of the type of the target structural response on convergence of the actuator force signal and the error magnitude is investigated.
 
@@ -440,7 +441,7 @@ Actuator force & Peak (kN) & 1068.22 & 441.68 & 655.78 \\
 \end{table}
 
 \subsection{Summary}
-Design of excitation systems for simulating wind induced responses of a building structure was presented as a preliminary study for evaluating wind-resistance characteristics of practical building structures. The actuator forces of the LMS and ATMD were obtained using the inverse transfer function of structural responses. Also, band stop filter was used in LMS to remove zero of the transfer function such that undesirable modal excitation is prevented, and envelop function was used to reduce the error occurring in transient initial states in both LMS and ATMD. The numerical analyses results from a 76-story benchmark building confirmed that the structural responses of a building structure excited by wind loads acting at all floors could be reproduced by the proposed excitation systems installed at a specific floor. The performances of the excitation systems were dependent on type and position of the target structural response for which acceleration response was suitable because targeting displacement response required large and high-speed changing control force. In order to enhance practical applicability of the wind-response simulating excitation systems, finite element model updating based on measured data, and the scaling or restriction of the excitation force or stroke limit for avoiding damage of the practical building etc. should be considered in further study.
+Design of excitation systems for simulating wind induced responses of a building structure was presented as a preliminary study for evaluating wind-resistance characteristics of practical building structures. The actuator forces of the LMS and ATMD were obtained using the inverse transfer function of structural responses. Also, band stop filter was used in LMS to remove zero of the transfer function such that undesirable modal excitation is prevented, and envelop function was used to reduce the error occurring in transient initial states in both LMS and ATMD. The numerical analyses results from a 76-story benchmark building confirmed that the structural responses of a building structure excited by wind loads acting at all floors could be reproduced by the proposed excitation systems installed at a specific floor. The performances of the excitation systems were dependent on type and position of the target structural response for which acceleration response was suitable because targeting displacement response required large and high-speed changing control force.
 
 
 
