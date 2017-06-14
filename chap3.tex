@@ -4,7 +4,7 @@
 \section{Design of an Actuator for Simulating Wind Response}
 \label{chap:6}
 
-In this chapter, simulation of wind induced responses of a building structure using linear mass shaker (LMS) and active tuned mass damper (ATMD) as actuator is conducted as shown in Figure~\ref{fig:6-1}. In order for the linear actuator to keep the structure in the target response trajectory, an inverse transfer function of a structural response to the shaker force is obtained using a state space form governing equation of the structure and the discrete Fourier transform of structural response is performed. Filter and envelop function are used such that the error between wind and actuator induced responses is minimized by preventing the shaker from exciting unexpected modal responses and initial transient responses. The effectiveness of the proposed method is verified through a numerical example of a 76 story-benchmark building excited by wind load of which deterministic time history is given. The effect of the type of the target structural response on convergence of the actuator force signal and the error magnitude is investigated.
+In this section, simulation of wind induced responses of a building structure using linear mass shaker (LMS) and active tuned mass damper (ATMD) as actuator is conducted as shown in Figure~\ref{fig:6-1}. In order for the linear actuator to keep the structure in the target response trajectory, an inverse transfer function of a structural response to the shaker force is obtained using a state space form governing equation of the structure and the discrete Fourier transform of structural response is performed. Filter and envelop function are used such that the error between wind and actuator induced responses is minimized by preventing the shaker from actuating unexpected modal responses and initial transient responses. The effectiveness of the proposed method is verified through a numerical example of a 76 story-benchmark building excited by wind load of which deterministic time history is given. The effect of the type of the target structural response on convergence of the actuator force signal and the error magnitude is investigated.
 
 \begin{figure}[ht]
 \centering
@@ -455,7 +455,7 @@ Design of excitation systems for simulating wind induced responses of a building
 
 In this section, the hybrid mass damper (HMD) controller for the pseudo-earthquake excitation test is designed by employing the method using the inverse transfer function of a structure, which is one of methodologies proposed by previous section, and is verified for its experimental implementation. First, a real-scaled 5 story steel frame, in which a HMD installed, is shaken and then transfer functions from the HMD to structural responses of each story are obtained. Then, the FE model numerically calculated from the software for commercial use is renewed based on the modal information extracted from experimentally obtained transfer functions. Also, the earthquake responses based on the renewed structural model are numerically calculated, and the structure is excited by a HMD input signal which is produced to simulate a specific target response of a structure out of these numerically calculated earthquake responses. Finally, the effectiveness of pseudo-earthquake excitation presented in this study is verified by comparing numerically calculated seismic responses with experimentally measured ones.
 
-The pseudo-earthquake excitation testing method presented in this study has several importance in an engineering aspect. First, the testing method that is performed for a real-scaled structure in field is free from lots of artificial constraints accompanied in laboratory test. Secondly, valuable data, which are available for the verification of structural seismic performance and the evaluation of the availability of vibration technique required in structural health monitoring, can be acquired from the test. Thirdly, large shaking table is not required to evaluate the seismic response of real-scaled building structures, since in this study the earthquake response is simulated by exciting a structure with a HMD installed at upper story.
+The pseudo-earthquake excitation testing method presented in this study has several importance in an engineering aspect. First, the testing method that is performed for a real-scaled structure in field is free from lots of artificial constraints accompanied in laboratory test. Secondly, valuable data, which are available for the verification of structural seismic performance and the evaluation of the availability of vibration technique required in structural health monitoring, can be acquired from the test. Thirdly, large shaking table is not required to evaluate the seismic response of real-scaled building structures, since in this study the earthquake response is simulated by actuating a structure with a HMD installed at upper story.
 
 \subsection{Experimental Real-Scale Building Model}
 The experimental model, which is shown in Figure 3, is a full-scale five-story steel structure which has the story height of 6m, the plan of $6m\times6m$, and the story mass of 20,000kg. Each floor is composed of four identical wide-flange type steel columns. A HMD using larger scale linear motor damper which was also designed as a passive damper has moving mass on the fifth floor excited the model structure. Because the columns consist of I-shaped steel, the HMD was installed in minor axis of the structure.
@@ -476,11 +476,11 @@ The experimental model, which is shown in Figure 3, is a full-scale five-story s
 
 \begin{figure}[!ht]
 \centering
-\subfigure[Photograph of model structure]{
-   \includegraphics[width=0.45\textwidth] {figure/7-2a.eps}
+\subfigure[Five-story building structure.]{
+   \includegraphics[width=0.45\textwidth] {figure/8-4.eps}
    \label{fig:7-1a}\hfill
  }
- \subfigure[Transfer function of target floor response to the HMD]{
+ \subfigure[Transfer function of target floor response to the HMD.]{
    \includegraphics[width=0.45\textwidth] {figure/7-2b.eps}
    \label{fig:7-1b}
  }
@@ -513,7 +513,7 @@ In this excitation system, both excitation and measurement signals are voltage s
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1\textwidth] {figure/7-3.eps}
-\caption{Schematic diagram of the field measurement, data acquisition and exciting system.}
+\caption{Schematic diagram of the field measurement, data acquisition and excitation system.}
 \label{fig:7-3}
 \end{figure}
 
@@ -527,7 +527,7 @@ In this excitation system, both excitation and measurement signals are voltage s
    \includegraphics[width=0.45\textwidth] {figure/7-4b.eps}
    \label{fig:7-4b}
  }
-\caption{Installation pictures of the measurement, data acquisition and exciting system.}
+\caption{Installation pictures of the measurement, data acquisition and excitation system.}
 \label{fig:7-4}
 \end{figure}
 
@@ -591,7 +591,7 @@ Modes & Frequency (Hz) \& COV (\%) & Damping ratio (\%) \& COV (\%)\\ \midrule[0
 \end{table}
 
 \subsubsubsection{Finite Model Updating}
-It is difficult to establish the FE model because of limitations in the number of sensors that may be deployed and the difficulty of exciting a structure to higher modes. The process of developing a FE model of a structure relating it to the experimental model is called FE model updating\citep{bagchi2005updating}. In this paper, an analysis model was established by modeling using ANSYS and model updating was carried out by using the measured modal data.
+It is difficult to establish the FE model because of limitations in the number of sensors that may be deployed and the difficulty of actuating a structure to higher modes. The process of developing a FE model of a structure relating it to the experimental model is called FE model updating\citep{bagchi2005updating}. In this paper, an analysis model was established by modeling using ANSYS and model updating was carried out by using the measured modal data.
 
 In this study the optimal matrix update method was used which is based on a constraint optimization problem where the minimum changes in the mass matrix or the stiffness matrix are found subjected to constraints such as symmetry, connectivity and definiteness\citep{baruch1978optimization, baruch1979optimal}. The mass matrix is assumed to be exact. There exists a constraint on the corrected stiffness matrix which should reproduce the measured modal data with symmetry. The two independent constraint equations are Eqs.~\eqref{eq:7-4} and \eqref{eq:7-5}. The function to be minimized must relate in some way to the difference between the corrected stiffness matrix, $\matr{K}$, and the analytically derived stiffness matrix, $\matr{K}_{a}$, which is shown in the form of norm in Eq.~\eqref{eq:7-6}. The expression for the updated mode and stiffness matrix, which is obtained by minimizing Eq.~\eqref{eq:7-6} satisfying Eqs.~\eqref{eq:7-4} and \eqref{eq:7-5}, lead to Eqs.~\eqref{eq:7-7} and \eqref{eq:7-8}\citep{baruch1979optimal, baruch1978optimization}.
 
@@ -774,9 +774,9 @@ The excitation force is generated by the HMD to vibrate the structure in the ela
 \label{fig:7-11}
 \end{figure}
 
-\subsection{Test Result}
+\subsection{Exoperimental Result}
 \subsubsection{Pseudo-earthquake excitation result}
-The pseudo-earthquake forced vibration testing is implemented. The earthquake El Centro(1940, NS) and Hachinohe(1968, NS) earthquake acceleration which PGAs were scaled down to 0.05g for the safety limit device were used in this study. The pseudo-earthquake exciting signal was generated by the inverse transfer function of structure introduced in the chapter~\ref{sec:7-5-1} corresponding to the target responses and the excitation was implemented through the HMD controller introduced in the chapter~\ref{sec:7-5-2}.
+The pseudo-earthquake forced vibration testing is implemented. The earthquake El Centro(1940, NS) and Hachinohe(1968, NS) earthquake acceleration which PGAs were scaled down to 0.05g for the safety limit device were used in this study. The pseudo-earthquake excitationa signal was generated by the inverse transfer function of structure introduced in the chapter~\ref{sec:7-5-1} corresponding to the target responses and the excitation was implemented through the HMD controller introduced in the chapter~\ref{sec:7-5-2}.
 
 Figure~\ref{fig:7-12} compares the result in time history of El Centro earthquake response in the analysis and experimental models. It is observed that both results from FE model and experimental one coincides well each other in initial time range, but the phase in post time range shows a tendency to be changed over 90 degrees. It is caused that the constraint in curve fitting the transfer function was considered weightily with the amplitude of the response not the phase, since in the seismic performance of the structure the amplitude was laid more weight on than the phase.
 
@@ -842,7 +842,7 @@ Figure~\ref{fig:7-13} compares the result in frequency domain of El Centro earth
 \label{fig:7-13}
 \end{figure}
 
-Figure~\ref{fig:7-14} compares the result in time domain of Hachinohe earthquake response in analysis model and experimental one. It is observed that both of results from FE model and experimental one are good agreement and demonstrate the effectiveness proposed pseudo-earthquake forced vibration testing method. The discrepancy in amplitude at the second mode frequency is caused by the difficulty of exciting a structure to higher modes limit the modal testing method to capturing only a few lower modes. To improve this phenomenon, it should be designed to be able to excite higher mode which has fundamental frequencies of a structure.
+Figure~\ref{fig:7-14} compares the result in time domain of Hachinohe earthquake response in analysis model and experimental one. It is observed that both of results from FE model and experimental one are good agreement and demonstrate the effectiveness proposed pseudo-earthquake forced vibration testing method. The discrepancy in amplitude at the second mode frequency is caused by the difficulty of excitationa a structure to higher modes limit the modal testing method to capturing only a few lower modes. To improve this phenomenon, it should be designed to be able to excite higher mode which has fundamental frequencies of a structure.
 
 \begin{figure}[!ht]
 \centering
@@ -946,8 +946,8 @@ Figure~\ref{fig:7-17} shows the floor distribute errors of the experimental meas
 \label{fig:7-17}
 \end{figure}
 
-\subsection{Concluding Remarks}
-In this chapter, filed measurement system of a full-scale structure and excitation system were established, and then forced vibration test was carried out using the Hybrid Mass Damper designed to simulate seismic load. System identification of the full-scale structure was carried out through white noise test and Finite Element (FE) model is updated. The seismic excitation system was accomplished through inverse transfer functions of structure and HMD by the system identifications. The propriety of seismic excitation system was verified by a comparison between the seismic numerical analysis results of FE model and the experimental results of HMD excitation.
+\subsection{Summary}
+In this section, filed measurement system of a full-scale structure and excitation system were established, and then forced vibration test was carried out using the Hybrid Mass Damper designed to simulate seismic load. System identification of the full-scale structure was carried out through white noise test and finite element model is updated. The seismic excitation system was accomplished through inverse transfer functions of structure and HMD by the system identifications. The propriety of seismic excitation system was verified by a comparison between the seismic numerical analysis results of finite element model and the experimental results of HMD excitation.
 
 
 
@@ -1003,7 +1003,7 @@ In order to use the designed MR dampers in the experiment, two MR dampers are ma
 Semiactive control algorithms determine the most appropriate voltage in order to change viscous characteristics of the MR damper from the structural response measurements. Since the MR damper force is related with not only command voltage but also the relative velocity and displacement between both ends of the damper, the MR dampers cannot be directly controlled by the command voltage. So far various semiactive control algorithms have been proposed for control of MR dampers~\citep{jansen2000semiactive}. In this section, four different control algorithms are considered; CO, LYAP, MEDA, and cost function-based SNC.
 
 \subsection{External excitation loads}
-In order to evaluate the performance of the MR damper-based semiactive control algorithms and passive control system, a suite of historical ground motions that are intended to encompass both moderate events and severe events is considered as external excitation load. Moreover, a filtered artificial earthquake (Kanai-Tajimi filter) is also adopted to verify the effectiveness of the control algorithms. Each historical ground motion and the artificial earthquake are scaled down in order to bound HMD by limited maximum displacement for safety. Each ground motions used in this investigation are as follows and the acceleration of HMD and its power spectral density are shown in Figure 10
+In order to evaluate the performance of the MR damper-based semiactive control algorithms and passive control system, a suite of historical ground motions that are intended to encompass both moderate events and severe events is considered as external excitation load. Moreover, a filtered artificial earthquake (Kanai-Tajimi filter) is also adopted to verify the effectiveness of the control algorithms. Each historical ground motion and the artificial earthquake are scaled down in order to bound HMD by limited maximum displacement for safety. Each ground motions used in this investigation are as follows and the acceleration of HMD and its power spectral density are shown in Figure~\ref{fig:n3-10-1} and \ref{fig:n3-10-2}.
 
 \subsubsection{Moderate events}
 \begin{itemize}
@@ -1023,13 +1023,61 @@ In order to evaluate the performance of the MR damper-based semiactive control a
    \item  Kanai-Tajimi filtered artificial earthquake (PGA:0.105g)
 \end{itemize}
 
+\begin{figure}[!ht]
+\centering
+\subfigure[Scaled El Centro earthquake]{
+   \includegraphics[width=0.40\textwidth] {figure/n3-10a-1.eps}
+   \label{fig:n3-10a-1}\hfill
+   \includegraphics[width=0.43\textwidth] {figure/n3-10a-2.eps}
+   \label{fig:n3-10a-2}
+}
+\subfigure[Scaled Hachinohe earthquake]{
+   \includegraphics[width=0.40\textwidth] {figure/n3-10b-1.eps}
+   \label{fig:n3-10b-1}\hfill
+   \includegraphics[width=0.43\textwidth] {figure/n3-10b-2.eps}
+   \label{fig:n3-10b-2}
+}
+\subfigure[Scaled Kobe earthquake]{
+   \includegraphics[width=0.40\textwidth] {figure/n3-10c-1.eps}
+   \label{fig:n3-10c-1}\hfill
+   \includegraphics[width=0.43\textwidth] {figure/n3-10c-2.eps}
+   \label{fig:n3-10c-2}
+}
+\caption{Acceleration of HMD and PSD used as external excitation load.}
+\label{fig:n3-10-1}
+\end{figure}
+
+\begin{figure}[!ht]
+\subfigure[Scaled Northridge earthquake]{
+   \includegraphics[width=0.40\textwidth] {figure/n3-10d-1.eps}
+   \label{fig:n3-10d-1}\hfill
+   \includegraphics[width=0.43\textwidth] {figure/n3-10d-2.eps}
+   \label{fig:n3-10d-2}
+}
+\subfigure[Kanai-Tajimi filtered artificial earthquake]{
+   \includegraphics[width=0.40\textwidth] {figure/n3-10e-1.eps}
+   \label{fig:n3-10e-1}\hfill
+   \includegraphics[width=0.43\textwidth] {figure/n3-10e-2.eps}
+   \label{fig:n3-10e-2}
+}
+\caption{Acceleration of HMD and PSD used as external excitation load.}
+\label{fig:n3-10-2}
+\end{figure}
+
 \subsection{Measurement Devices and Feedback Control System}
 
 Measurement devices used in this experiment are displacement sensors, accelerometers, load cells, and current probe. The displacement sensors are used in measuring the relative displacement between ground and the first floor, which is the displacement of MR damper’s both ends. When the MR dampers are installed, two LVDT type potentiometers (Midori America LP-19FB) are used. To the contrary, two laser displacement sensors (Optex CD4-350D) are used, when the MR dampers are not installed. Each floor’s acceleration is measured by five accelerometers (PCB 393A03) and that of LAMD by Kyowa AS-2GB accelerometer. The load cells (CAS load cell LS-2T) measuring the MR damper control force are installed between the MR damper and the first floor. The current probes (Tektronix A622) measuring the current into each MR damper are also installed along the MR damper’s power cable.
 
 The measured data from the above measurement devices are collected and digitalized through a data acquisition system (NI DAQ-card 6062E). The collected data is selected for each semiactive control algorithm, and finally determined command voltage is sent to a current generator, which converts voltage to corresponding current. Then the MR damper is able to control the building structure with the generated current.
 
-Finally, the MR damper-based semiactive feedback control system, which has 12 inputs and two outputs, can be formed as shown in Figure 11.
+Finally, the MR damper-based semiactive feedback control system, which has 12 inputs and two outputs, can be formed as shown in Figure~\ref{fig:n3-11}.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.50\textwidth] {figure/n3-11.eps}
+\label{fig:n3-11}
+\caption{MR damper-based semi-active feed back control system.}
+\end{figure}
 
 The CO as well as the cost function-based SNC algorithm needs full state or specific state of the structural system in order to calculate the appropriate desired control force. Actually, the control implementation requires a large amount of sensors and that would be even impossible. Therefore the Kalman filters as an observer for state estimation is desirable. Consider a controllable and observable system and assume that full state estimation is required. Then the main purpose of the general Kalman filter is constructing a state estimate $\hat{\mathbf{x}}(t)$ that minimizes the steady-state error  covariance which is defined by:
 
@@ -1049,16 +1097,10 @@ The optimal estimator for the state of interest is the Kalman filter which can b
 where filter gain $\mathbf{L}$  is determined by solving an algebraic Riccati equation. The Kalman filter uses the known input $\mathbf{u}$ and the measurements $\mathbf{y}$ to generate the output and state estimates, that is, $\hat{\mathbf{y}}$ and $\hat{\mathbf{x}}$. Note that $\hat{\mathbf{y}}$  estimates the true system output without
 noises.
 
-\subsection{Test building}
+\subsection{Testing building model}
 
-All the stories in this building are 6m in height and are $6\times6m^{2}$ in plan. To investigate the modal characteristics of the building, a forced-vibration test is performed using a hybrid mass damper (HMD) located on the fourth floor. The building is excited by a white-noise signal with frequency components of 0-10 Hz, and the corresponding acceleration responses are then measured at each floor. Using these measured acceleration data, transfer functions in the frequency domain are obtained, as shown by the dotted lines in Figure~\ref{fig:8-5}. Finally, the structural damping and stiffness matrices are identified based on the experimentally obtained transfer functions, as shown by the solid lines in Figure~\ref{fig:8-5}. The estimated mass and the identified damping and stiffness matrices are given in Eqs.~\eqref{eq:8-5}-\eqref{eq:8-7}, respectively, with results of 0.52, 1.76, 2.95, 3.67, and 5.38 Hz for each mode.
+All the stories in this building are 6m in height and are $6\times6m^{2}$ in plan. To investigate the modal characteristics of the building, a forced-vibration test is performed using a hybrid mass damper (HMD) located on the fourth floor in previous section. The building is excited by a white-noise signal with frequency components of 0-10 Hz, and the corresponding acceleration responses are then measured at each floor. Using these measured acceleration data, transfer functions in the frequency domain are obtained, as shown by the dotted lines in Figure~\ref{fig:7-7}. Finally, the structural damping and stiffness matrices are identified based on the experimentally obtained transfer functions, as shown by the solid lines in Figure~\ref{fig:7-7}. The estimated mass and the identified damping and stiffness matrices are given in Eqs.~\eqref{eq:8-5}-\eqref{eq:8-7}, respectively, with results of 0.52, 1.76, 2.95, 3.67, and 5.38 Hz for each mode.
 
-\begin{figure}[ht]
-\centering
-\includegraphics[width=1\textwidth] {figure/8-4.eps}
-\caption{ Five-story building structure.}
-\label{fig:8-4}
-\end{figure}
 
 \begin{align}
 \matr{M}_{5} & = \begin{bmatrix} 19365.5 & 0 & 0 & 0 & 0\\ 0 & 19365.5 & 0 & 0 & 0 \\ 0 & 0 & 19365.5 & 0 & 0 \\ 0 & 0 & 0 & 19365.5 & 0 \\ 0 & 0 & 0 & 0 & 19365.5\end{bmatrix}kg \label{eq:8-5} \\
@@ -1066,32 +1108,32 @@ All the stories in this building are 6m in height and are $6\times6m^{2}$ in pla
 \matr{K}_{5} & = \begin{bmatrix} 7473.953 & 4860.497 & 1295.606 & -908.262 & 432.162 \\ -4860.497 & 9640.722 & -6637.235 & 2446.225 & -926.951 \\ 1295.606 & -6637.235 & 10861.354 & -6005.863 & 748.607 \\ -908.262 & 2446.225 & -6005.863 & 9132.066 & -4852.783 \\ 432.162 & -926.951 & 748.607 & -4852.783 & 4543.854\end{bmatrix}kN\/m \label{eq:8-7}
 \end{align}
 
-\clearpage
-\begin{figure}[H]
-\centering
-\subfigure[fifth floor]{
-   \includegraphics[width=0.6\textwidth] {figure/8-5a.eps}
-   \label{fig:8-5a}\hfill
-}
-\subfigure[fourth floor]{
-   \includegraphics[width=0.6\textwidth] {figure/8-5b.eps}
-   \label{fig:8-5b}
-}
-\subfigure[third floor]{
-   \includegraphics[width=0.6\textwidth] {figure/8-5c.eps}
-   \label{fig:8-5c}\hfill
-}
-\subfigure[second floor]{
-   \includegraphics[width=0.6\textwidth] {figure/8-5d.eps}
-   \label{fig:8-5d}
-}
-\subfigure[first floor]{
-   \includegraphics[width=0.6\textwidth] {figure/8-5e.eps}
-   \label{fig:8-5e}
-}
-\caption{Measured and identified transfer functions with the HMD acceleration (dotted line :experiment, solid lines: identification).}
-\label{fig:8-5}
-\end{figure}
+% \clearpage
+% \begin{figure}[H]
+% \centering
+% \subfigure[fifth floor]{
+%    \includegraphics[width=0.6\textwidth] {figure/8-5a.eps}
+%    \label{fig:8-5a}\hfill
+% }
+% \subfigure[fourth floor]{
+%    \includegraphics[width=0.6\textwidth] {figure/8-5b.eps}
+%    \label{fig:8-5b}
+% }
+% \subfigure[third floor]{
+%    \includegraphics[width=0.6\textwidth] {figure/8-5c.eps}
+%    \label{fig:8-5c}\hfill
+% }
+% \subfigure[second floor]{
+%    \includegraphics[width=0.6\textwidth] {figure/8-5d.eps}
+%    \label{fig:8-5d}
+% }
+% \subfigure[first floor]{
+%    \includegraphics[width=0.6\textwidth] {figure/8-5e.eps}
+%    \label{fig:8-5e}
+% }
+% \caption{Measured and identified transfer functions with the HMD acceleration (dotted line :experiment, solid lines: identification).}
+% \label{fig:8-5}
+% \end{figure}
 
 \subsection{Experimental results}
 The passive control cases which provide specific constant voltage or current to the MR damper are the simplest means to operate the semiactive control using MR damper, because they need neither control algorithms nor measuring sensors. In this study, therefore, the passive optimal case is determined by a series of passively controlled experiments and compared with the performance of the other semiactive control algorithms.

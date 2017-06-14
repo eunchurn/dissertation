@@ -1,14 +1,14 @@
 %!TEX encoding = UTF-8 Unicode
 %\part{Real-Time Hybrid Test Method}
-\chapter{Real-Time Hybrid Testing Method}
+\chapter{Hybrid Testing Method}
 \label{rthytem}
-In this chapter, the real-time hybrid testing method is introduced as a classification according to equipment type. RT-HYTEM is largely divided into shaking table experiment and UTM experiment by its equipment type. First, the real-time hybrid experiment using the shaking table is divided into the substructuring test method which tests the partial structural system separately, and the real-time shaking table testing method by installing building structure with nonlinear mass typed vibration control devices such as TLD, TLCD, and TLMD. Secondly, in the case of MR damper which is a type of semi-active friction damper, it is very difficult to shaking table testing installed in an actual building. Therefore, the MR damper is installed in a universal testing machine (UTM), and a real-time hybrid experiment is implemented by simulating the MR damper behavior mounted in a real size building. This part will describe in chapter~\ref{chap:rthytem-mrdamper}.
+In this chapter, the hybrid testing method is introduced as a classification according to equipment type. The hybrid testing method is largely divided into shaking table experiment and UTM experiment by its equipment type. First, the hybrid testing method using the shaking table is divided into the substructuring test method which tests the partial structural system separately, and the hybrid shaking table testing method by installing building structure with nonlinear mass typed vibration control devices such as TLD, TLCD, and TLMD. Secondly, in the case of MR damper which is a type of semi-active friction damper, it is very difficult to implement hybrid shaking table testing installed in an actual building. Therefore, the MR damper is installed in a universal testing machine (UTM), and a hybrid testing method is implemented by simulating the MR damper behavior mounted in a real scaled building. This subject will consider with chapter~\ref{chap:rthytem-mrdamper}.
 
-\section{Real-Time Hybrid Test for Substructuring Technique}
+\section{Substructuring technique}
 \label{chap:realtimesubstrct}
 
-The most real-time substructuring techniques focus on the nonlinear behavior of the lower stories, which are selected as the experimental substructure. Accordingly, the upper stories are considered as the numerical substructure in those conventional substructuring techniques. Differently, from those researches, these studies address the real-time substructuring technique for the shaking table test of a building structure adopting the upper stories as the experimental substructure and the lower stories as the analytical substructure. Figure~\ref{fig:2-1} shows the conceptual difference between the conventional and the proposed real-time substructuring techniques. 
-The necessity of testing the upper substructure is found in diverse structures. For example, the wind-induced acceleration response of slender building structures is usually very large in the top story, and detailed experiment for this upper part of the building structure may be required, since excessive acceleration response may be harmful to human comfort or high precision equipment. Also, in some cases, a light appendage, for example, a penthouse, a small housing for mechanical equipment and an advertising billboard, may vibrate excessively rather than the primary structure. Besides, to suppress excessive vibration induced by winds and earthquakes, a tuned mass damper (TMD) or tuned liquid damper (TLD) is employed on the top story of the high-rise building, and its performance should be verified in the laboratory before installation. Finally, the base isolation system to protect expensive machinery housed in a building structure needs experimental verification for a certain level of earthquake.
+The most substructuring techniques focus on the nonlinear behavior of the lower stories, which are selected as the experimental substructure. Accordingly, the upper stories are considered as the numerical substructure in those conventional substructuring techniques. Differently, from those researches, these studies address the substructuring technique for the shaking table test of a building structure adopting the upper stories as the experimental substructure and the lower stories as the analytical substructure. Figure~\ref{fig:2-1} shows the conceptual difference between the conventional and the proposed substructuring techniques as part of hybrid testing method. 
+The necessity of testing the upper substructure is found in diverse structures. For example, the wind-induced acceleration response of slender building structures is usually very large in the top story, and detailed experiment for this upper part of the building structure may be required, since excessive acceleration response may be harmful to human comfort or high precision equipment. Also, in some cases, a light appendage, for example, a penthouse, a small housing for mechanical equipment and an advertising billboard, may vibrate excessively rather than the primary structure. Besides, to suppress excessive vibration induced by winds and earthquakes, a tuned mass damper or tuned liquid damper is employed on the top story of the high-rise building, and its performance should be verified in the laboratory before installation. Finally, the base isolation system to protect expensive machinery housed in a building structure needs experimental verification for a certain level of earthquake.
 
 \begin{figure}[ht]
 \centering
@@ -24,7 +24,7 @@ The necessity of testing the upper substructure is found in diverse structures. 
  }
 
 \label{fig:2-1}
-\caption{Conceptual illustrations of the real-time substructuring methods}
+\caption{Conceptual illustrations of the substructuring methods}
 \end{figure}
 
 On these backgrounds, this subsection proposes a shaking table testing method using the upper part of a building structure as the experimental substructure based on the acceleration feedback from the experimental substructure. Also, the proposed method is verified experimentally through real-time implementation. Figure~\ref{fig:2-2} illustrates the schematic diagram of the proposed testing method in this study. At first, the interface force acting between the upper experimental and lower numerical substructures is calculated based on the acceleration feedback of the experimental substructure which is mounted on shaking table. Then the interface acceleration required to replicate the dynamic behavior of the whole structure is calculated from the numerical substructure subjected to the interface force and assumed base motion for the entire structure. Finally, shaking table excites the upper experimental substructure according to the command signal from the shaking table controller. The series of above processes are performed during a single time interval and repeated over the entire duration of the experiment.
@@ -201,12 +201,12 @@ i(t)=&-m_{E(1)}\ddot{Y}_{E(1)}(t)-m_{E(2)}\ddot{Y}_{E(2)}(t) \label{eq:2-19} \\
 \ddot{Y}_{N(3)}(t)=&-c_{N(3)}\left(\dot{Y}_{N(3)}-\dot{Y}_{N(2)}\right) -k_{N(3)}\left(Y_{N(3)}-Y_{N(2)}\right)+i(t) \label{eq:2-20}
 \end{align}
 
-Eq.~\eqref{eq:2-20} means that the interface force, which is produced by the shaking table, is calculated using the two measured absolute accelerations of the experimental substructure. Then, the interface acceleration is calculated from the numerical substructure expressed by Eq.~\eqref{eq:2-11}. Figure~\ref{fig:2-11} represents the block diagram of the entire real-time substructuring experimental system including the numerical substructure marked by the shaded area. In Figure~\ref{fig:2-11}, the ground acceleration, $\ddot{Y}_{g}$, is not a measured signal but an input data prescribed by a user. Finally, the shaking table motion is controlled using the inverse transfer function of Eq.~\eqref{eq:2-17} to minimize the errors between the interface acceleration computed as the third story absolute acceleration of the numerical substructure, $\ddot{Y}_{N(3)}$, and the actual shaking table acceleration. Therefore, the shaking table itself works as the interface node of Figure~\ref{fig:2-3b} and excites the upper experimental substructure. In the actual implementation of the shaking table test, the continuous filters included in Figure~\ref{fig:2-11} are converted into discrete filters with a time step of 0.01 sec.
+Eq.~\eqref{eq:2-20} means that the interface force, which is produced by the shaking table, is calculated using the two measured absolute accelerations of the experimental substructure. Then, the interface acceleration is calculated from the numerical substructure expressed by Eq.~\eqref{eq:2-11}. Figure~\ref{fig:2-11} represents the block diagram of the entire substructuring testing system including the numerical substructure marked by the shaded area. In Figure~\ref{fig:2-11}, the ground acceleration, $\ddot{Y}_{g}$, is not a measured signal but an input data prescribed by a user. Finally, the shaking table motion is controlled using the inverse transfer function of Eq.~\eqref{eq:2-17} to minimize the errors between the interface acceleration computed as the third story absolute acceleration of the numerical substructure, $\ddot{Y}_{N(3)}$, and the actual shaking table acceleration. Therefore, the shaking table itself works as the interface node of Figure~\ref{fig:2-3b} and excites the upper experimental substructure. In the actual implementation of the shaking table test, the continuous filters included in Figure~\ref{fig:2-11} are converted into discrete filters with a time step of 0.01 sec.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.8\textwidth] {figure/2-11.eps}
-\caption{Block diagram of the integrated controller for the real-time substructuring experimental system.}
+\caption{Block diagram of the integrated controller for the substructuring testing system.}
 \label{fig:2-11}
 \end{figure}
 
@@ -217,20 +217,18 @@ Eq.~\eqref{eq:2-20} means that the interface force, which is produced by the sha
 
 
 %!TEX encoding = UTF-8 Unicode
-\section{RT-HYTEM for the Performance Evaluation of a Tuned Liquid Damper}% RT-HYTEM for the Performance Evaluation of a Tuned Liquid Column Damper
+\section{Hybrid Testing Method for the Performance Evaluation of a Tuned Liquid Damper}% hybrid testing method for the Performance Evaluation of a Tuned Liquid Column Damper
 \label{chap:3}
 
-Tuned Liquid Damper (TLD) dissipates structural vibratory energy by tuning the frequency of the liquid sloshing to one of the structure\citep{soong1997passive}. TLD has generally been applied to the control of wind-induced acceleration response\citep{chang1998unified}, and recently, some investigations on the seismic control performance of the TLD have been made\citep{banerji2000tuned}. In order to describe the behavior of the TLD, linear model based on tuned mass damper (TMD) analogy\citep{sun1995properties} and linear wave theory, nonlinear stiffness and damping model\citep{yu1999non}, and sloshing-slamming analogy\citep{yalla2001liquid} can be used. However, because any model has an error in capturing the real dynamic characteristics of the control force generated by the TLD and furthermore the error increases for the case of non-stationary excitation such as an earthquake, evaluation of the seismic control performance of the TLD only numerically has the accuracy problem.
+In this section, the vibration control effect of a TLD for a building structure excited by earthquake load is experimentally evaluated through the hybrid testing method. The hybrid testing method does not require a physical building structural model in performing the experiment of a TLD–structure interaction system, and it only uses a TLD which is known to have strong nonlinearity dependent on response amplitude, excitation frequency, and depth to length ratio\citep{yu1999non}. The structural responses of the interaction system are calculated numerically in real time using the analytical structural model with the excitations of measured control force, user-defined base earthquake loads, and its state space realization incorporated in the integrated controller of the shaking table. Also, in order to minimize the distortion of the acceleration of the shaking table, the inverse transfer function of the shaking table is identified and its state space realization is implemented in the shaking table controller. The motion of shaking table behaves both the controlled and uncontrolled absolute acceleration of the TLD mounted floor by modulating the feedback gain of the shear force measured by the load cell installed between the TLD and the shaking table. Comparison between the structural responses obtained by the hybrid testing method and the conventional shaking table test of a single story steel frame with TLD is made in order to verify the accuracy of the hybrid testing method and the uncontrolled and TLD-controlled structural responses of a three-story structure are obtained by the hybrid testing method in both time and frequency domains.
 
-In this section, the vibration control effect of a TLD for a building structure excited by earthquake load is experimentally evaluated through the RH-HYTEM. The RT-HYTEM does not require a physical building structural model in performing the experiment of a TLD–structure interaction system, and it only uses a TLD which is known to have strong nonlinearity dependent on response amplitude, excitation frequency, and depth to length ratio [15]. The structural responses of the interaction system are calculated numerically in real time using the analytical structural model with the excitations of measured control force, user-defined base earthquake loads, and its state space realization incorporated in the integrated controller of the shaking table. Also, in order to minimize the distortion of the acceleration of the shaking table, the inverse transfer function of the shaking table is identified and its state space realization is implemented in the shaking table controller. The motion of shaking table behaves both the controlled and uncontrolled absolute acceleration of the TLD mounted floor by modulating the feedback gain of the shear force measured by the load cell installed between the TLD and the shaking table. Comparison between the structural responses obtained by the RT-HYTEM and the conventional shaking table test of a single story steel frame with TLD is made in order to verify the accuracy of the RT-HYTEM and the uncontrolled and TLD-controlled structural responses of a three-story structure are obtained by the RT-HYTEM in both time and frequency domains.
-
-\subsection{Real-time Hybrid Shaking Table Testing Method with TLD}
-Figure~\ref{fig:3-1} depicts the conceptual illustrations of the RT-HYTEM for an n-degrees-of-freedom structural model which is excited by base acceleration and has a tuned liquid damper at its top story. First, the whole control system is separated into the lower part structure, and the upper part TLD and the interaction force between the structure and TLD are considered. The TLD with the interacting force at its bottom is physically tested, and the response of the structure with interacting force at the top floor and the base acceleration is numerically calculated by using the computer controlling the motion of the shaking table. Measurement of interacting force is easily accomplished by installing a shear-type load-cell at the bottom of the TLD, as shown in Figure~\ref{fig:3-1}. TLD-generated shear force is fed back to the control computer. With this fed-back interacting force, the structural response of the story, where a TLD is installed, is calculated using the numerical part. The shaking table excites the upper TLD according to this calculated response. This process is carried out on real-time.
+\subsection{Hybrid Testing Method with TLD}
+Figure~\ref{fig:3-1} depicts the conceptual illustrations of the hybrid testing method for an n-degrees-of-freedom structural model which is excited by base acceleration and has a tuned liquid damper at its top story. First, the whole control system is separated into the lower part structure, and the upper part TLD and the interaction force between the structure and TLD are considered. The TLD with the interacting force at its bottom is physically tested, and the response of the structure with interacting force at the top floor and the base acceleration is numerically calculated by using the computer controlling the motion of the shaking table. Measurement of interacting force is easily accomplished by installing a shear-type load-cell at the bottom of the TLD, as shown in Figure~\ref{fig:3-1}. TLD-generated shear force is fed back to the control computer. With this fed-back interacting force, the structural response of the story, where a TLD is installed, is calculated using the numerical part. The shaking table excites the upper TLD according to this calculated response. This process is carried out on real-time.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[scale =1] {figure/3-1.eps}
-\caption{Conceptual view of the real-time hybrid shaking table test}
+\includegraphics[width=\textwidth] {figure/3-1.eps}
+\caption{Conceptual view of the hybrid shaking table test}
 \label{fig:3-1}
 \end{figure}
 
@@ -270,19 +268,19 @@ where, the state variable vector, $\matr{z}(t)$, with the length of $2n$ compris
 
 
 %!TEX encoding = UTF-8 Unicode
-\section{RT-HYTEM for the Performance Evaluation of a Tuned Liquid Column Damper}
+\section{Hybrid testing method for the Performance Evaluation of a Tuned Liquid Column Damper}
 \label{chap:4}
 
-The tuned liquid column damper (TLCD) has received the attention of researchers as a type of auxiliary mass system\citep{samali1998wind}. TLCD has the control characteristics similar to that of tuned mass damper (TMD), which is one of most frequently used dampers for vibration control. Since the viscosity term in the governing equation of motion of TLCD is a function of the absolute value of liquid velocity, the equation is nonlinear, and the dynamic characteristics of TLCD depend on the magnitude and the characteristics of excitation forces and the corresponding structural responses of the floor at which TLCD is installed\citep{yalla2001liquid}.
-In this section, the vibration control effect of a TLCD for a building structure excited by earthquake load is experimentally evaluated through the real-time hybrid shaking table testing method (RT-HYTEM). The RT-HYTEM does not require a physical building structural model in performing the experiment of a TLCD-structure interaction system, and it only uses a TLCD. The structural responses of the interaction system are calculated numerically in real time using the analytical structural model with the excitations of measured control force, user-defined base earthquake loads, and its state space realization incorporated in the integrated controller of the shaking table. Also, in order to minimize the distortion of the acceleration of the shaking table, the inverse transfer function of the shaking table is identified, and its state space realization is implemented in the shaking table controller. The shaking table behaves as the absolute acceleration of the TLCD mounted floor by calculating the fed back signal of the shear force signal measured by the load cell positioned between the TLCD and plate of the shaking table. Comparison results between the structural responses obtained by the RT-HYTEM and the conventional shaking table test of a single story steel frame with TLCD are made in order to verify the accuracy of the RT-HYTEM in both time and frequency domains.
+The tuned liquid column damper has received the attention of researchers as a type of auxiliary mass system\citep{samali1998wind}. TLCD has the control characteristics similar to that of tuned mass damper , which is one of most frequently used dampers for vibration control. Since the viscosity term in the governing equation of motion of TLCD is a function of the absolute value of liquid velocity, the equation is nonlinear, and the dynamic characteristics of TLCD depend on the magnitude and the characteristics of excitation forces and the corresponding structural responses of the floor at which TLCD is installed\citep{yalla2001liquid}.
+In this section, the vibration control effect of a TLCD for a building structure excited by earthquake load is experimentally evaluated through the hybrid testing method. The hybrid testing method does not require a physical building structural model in performing the experiment of a TLCD-structure interaction system, and it only uses a TLCD. The structural responses of the interaction system are calculated numerically in real time using the analytical structural model with the excitations of measured control force, user-defined base earthquake loads, and its state space realization incorporated in the integrated controller of the shaking table. Also, in order to minimize the distortion of the acceleration of the shaking table, the inverse transfer function of the shaking table is identified, and its state space realization is implemented in the shaking table controller. The shaking table behaves as the absolute acceleration of the TLCD mounted floor by calculating the fed back signal of the shear force signal measured by the load cell positioned between the TLCD and plate of the shaking table. Comparison results between the structural responses obtained by the hybrid testing method and the conventional shaking table test of a single story steel frame with TLCD are made in order to verify the accuracy of the hybrid testing method in both time and frequency domains.
 
-\subsection{Real-Time Hybrid Shaking Table Testing Method with TLCD}
+\subsection{RHybrid Testing Method with TLCD}
 Figure~\ref{fig:4-1} shows the conceptual view of the experiment. The whole structural control system, which a TLCD was installed onto the structural model with n-degrees-of-freedom at its top story, is separated, and as the result of that, the force interacts at their interface. The upper part of TLCD with the interacting force at its bottom is physically tested and the lower part of the structural model with the interacting force and the input motion at its top story and base, respectively, is numerically calculated within the computer to control the motion of shaking table. For the experimental implementation, interacting or control force generated by a TLCD, which is observed from a load-cell, is fed back to the control computer. With the fed-back interacting force, the structural response of the story, where a TLCD is incorporated, is calculated from the numerical part. The shaking table excites the upper TLCD with this calculated response. These processes are carried out on real-time.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1\textwidth] {figure/4-1.eps}
-\caption{Concept of the real-time hybrid testing method (TLCD)}
+\caption{Concept of the hybrid testing method (TLCD)}
 \label{fig:4-1}
 \end{figure}
 
@@ -324,12 +322,12 @@ where, $\matr{0}_{n \times n}$ and $\matr{I}_{n \times n}$ are the zero and unit
 
 
 %!TEX encoding = UTF-8 Unicode
-\section{RT-HYTEM for the Performance Evaluation of a Tuned Liquid Mass Damper}
+\section{Hybrid Testing Method for the Performance Evaluation of a Tuned Liquid Mass Damper}
 \label{chap:5}
 
-In previous study\citet{heo2009performance}, a new control device, which is called tuned liquid mass damper (TLMD), was developed and discussed in this section. The dynamic characteristics of a TLMD used in this study are that its mass is composed of both a mass of TLCD frame itself and that of liquid in a tank. Natural rubber columns were used to substitute the stiffness of a TMD. Therefore, a TLMD operates as a TLCD in one direction and behaves as a TMD in the other orthogonal direction. 
+In previous study\citep{heo2009performance}, a new control device, which is called tuned liquid mass damper (TLMD), was developed and discussed in this section. The dynamic characteristics of a TLMD used in this study are that its mass is composed of both a mass of TLCD frame itself and that of liquid in a tank. Natural rubber columns were used to substitute the stiffness of a TMD. Therefore, a TLMD operates as a TLCD in one direction and behaves as a TMD in the other orthogonal direction. 
 
-In this section, the control performance of the proposed TLMD for reducing bidirectional responses of building structures is experimentally verified through both a conventional structural testing method and RT-HYTEM. First, the control performance of a TLMD is evaluated by forced vibrating sinusoidal signal to an experimental prototype which is composed of both a TLMD and a  building structure. Then, the real-time hybrid test is performed to evaluate the performance of a TLMD, in which the building structural model is used as a numerical part, and the TLMD is experimentally tested.
+In this section, the control performance of the proposed TLMD for reducing bidirectional responses of building structures is experimentally verified through both a conventional structural testing method and hybrid testing method. First, the control performance of a TLMD is evaluated by forced vibrating sinusoidal signal to an experimental prototype which is composed of both a TLMD and a  building structure. Then, the hybrid testing method is performed to evaluate the performance of a TLMD, in which the building structural model is used as a numerical part, and the TLMD is experimentally tested.
 
 \subsection{Developed TLMD Model}
 Figure~\ref{fig:5-1} shows the plan view of the TLMD used in this study. The bidirectional TLMD would be installed in the POSCO New Songdo City Tower 1A in Incheon, South Korea with 64 stories and 236 meters in height. An eigenvalue analysis of the tower resulted in $0.182$ and $0.162Hz$ in the $x, y$-directions, respectively, for the first natural frequencies, and $34,000tons$ for the first modal mass. The total mass of the bidirectional TLMD is $600tons$ that results from the effective mass ratio of about $1.76\%$.
@@ -484,10 +482,10 @@ In order to verify the performance of the shaking table controller, a down-scale
 
 
 
-\subsection{Controller design of RT-HYTEM Building with TLD}
+\subsection{Experimental System for Hybrid Testing of Building with TLD}
 \subsubsection{Experimental setup}
 
-In order to experimentally verify the RT-HYTEM, an experimental system shown in Figure~\ref{fig:3-2} was set up in Seismic Retrofitting \& Remodeling Research Center at the Dankook University, Seoul, Korea. The TLD was uniaxially excited by the shaking table on which it was mounted. The shear-type load-cell was inserted between the TLD and the shaking table to measure the base shear force yielded by the horizontal motion of the TLD during the test. Also, an accelerometer was attached to the shaking table to monitor its motion.
+In order to experimentally verify the hybrid testing method, an experimental system shown in Figure~\ref{fig:3-2} was set up in Seismic Retrofitting \& Remodeling Research Center at the Dankook University, Seoul, Korea. The TLD was uniaxially excited by the shaking table on which it was mounted. The shear-type load-cell was inserted between the TLD and the shaking table to measure the base shear force yielded by the horizontal motion of the TLD during the test. Also, an accelerometer was attached to the shaking table to monitor its motion.
 
 \begin{figure}[ht]
 \centering
@@ -497,12 +495,12 @@ In order to experimentally verify the RT-HYTEM, an experimental system shown in 
 \end{figure}
 
 \subsubsection{Integrated Controller of the Numerical Structural Model and the Shaking Table}
-The numerical structural model and the shaking table dynamics discussed in the previous subsections are integrated into the controller to implement the RT-HYTEM. Figure~\ref{fig:3-3} illustrates the block diagram for the RT-HYTEM. In the figure, the absolute acceleration is produced by the numerical structural model of Eq.~\eqref{eq:3-3} with two inputs of the measured interacting force, $i_{e}(t)$, and not the measured but the prescribed earthquake record signal, $\ddot{z}_{0}(t)$, as marked by the shaded area. The motion of the shaking table is driven by the controller using the inverse transfer function to minimize the error between the absolute acceleration, $\ddot{Y}_{n}(t)$, calculated as the top story response of the structure and the actual shaking table acceleration, $\ddot{Y}_{e}(t)$. Accordingly, the shaking table itself behaves as the top story of the structure, at which a TLD is installed, and excites the upper TLD that should be physically tested.
+The numerical structural model and the shaking table dynamics discussed in the previous subsections are integrated into the controller to implement the hybrid testing method. Figure~\ref{fig:3-3} illustrates the block diagram for the hybrid testing method. In the figure, the absolute acceleration is produced by the numerical structural model of Eq.~\eqref{eq:3-3} with two inputs of the measured interacting force, $i_{e}(t)$, and not the measured but the prescribed earthquake record signal, $\ddot{z}_{0}(t)$, as marked by the shaded area. The motion of the shaking table is driven by the controller using the inverse transfer function to minimize the error between the absolute acceleration, $\ddot{Y}_{n}(t)$, calculated as the top story response of the structure and the actual shaking table acceleration, $\ddot{Y}_{e}(t)$. Accordingly, the shaking table itself behaves as the top story of the structure, at which a TLD is installed, and excites the upper TLD that should be physically tested.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[scale =1] {figure/3-3.eps}
-\caption{Block diagram of the integrated controller for the real-time hybrid experimental system.}
+\caption{Block diagram of the integrated controller for the hybrid testing system.}
 \label{fig:3-3}
 \end{figure}
 
@@ -514,14 +512,14 @@ The numerical structural model and the shaking table dynamics discussed in the p
 
 
 
-\subsection{Controller design of RT-HYTEM Building with TLCD}
-The numerical part and the shaking table controller discussed in previous subsections should be integrated into the controller to implement the real-time hybrid test shown in Figure~\ref{fig:4-1}. Figure~\ref{fig:4-3} illustrates the block diagram for experimentally implementing the testing method. In the figure, the absolute acceleration is produced by the numerical part such as Eq.~\eqref{eq:4-3} with two inputs of the measured interacting force, $i_{e}(t)$, and not the measured but the prescribed earthquake record signal, $\ddot{z}_{0}(t)$, by a user in the control computer, as marked by the shaded area. The motion of shaking table is driven by the controller using the inverse transfer function to minimize the error between the controlled absolute acceleration, $\ddot{Y}_{n}(t)$, calculated as the top story response of structure and the actual shaking table acceleration, $\ddot{Y}_{e}(t)$. Accordingly, the shaking table itself behaves as the top story of structure, at which a TLCD is installed, and excites the upper TLCD that should be physically tested.
-To verify the real-time hybrid shaking table testing method, firstly the conventional TLCD-structure interaction model shown in Figure~\ref{fig:4-4a} is experimentally implemented. Then, the hybrid test is shown in Figure~\ref{fig:4-4b}, which the structural model in Figure~\ref{fig:4-4a} is incorporated in the numerical calculation of its identified damping and stiffness coefficients and measured mass, is performed for the controlled case. Finally, two results from controlled cases are compared for the experimental verification of the real-time hybrid test.
+\subsection{Experimental System for Hybrid Testing of Building with TLCD}
+The numerical part and the shaking table controller discussed in previous subsections should be integrated into the controller to implement the hybrid testing shown in Figure~\ref{fig:4-1}. Figure~\ref{fig:4-3} illustrates the block diagram for experimentally implementing the testing method. In the figure, the absolute acceleration is produced by the numerical part such as Eq.~\eqref{eq:4-3} with two inputs of the measured interacting force, $i_{e}(t)$, and not the measured but the prescribed earthquake record signal, $\ddot{z}_{0}(t)$, by a user in the control computer, as marked by the shaded area. The motion of shaking table is driven by the controller using the inverse transfer function to minimize the error between the controlled absolute acceleration, $\ddot{Y}_{n}(t)$, calculated as the top story response of structure and the actual shaking table acceleration, $\ddot{Y}_{e}(t)$. Accordingly, the shaking table itself behaves as the top story of structure, at which a TLCD is installed, and excites the upper TLCD that should be physically tested.
+To verify the hybrid testing method, firstly the conventional TLCD-structure interaction model shown in Figure~\ref{fig:4-4a} is experimentally implemented. Then, the hybrid test is shown in Figure~\ref{fig:4-4b}, which the structural model in Figure~\ref{fig:4-4a} is incorporated in the numerical calculation of its identified damping and stiffness coefficients and measured mass, is performed for the controlled case. Finally, two results from controlled cases are compared for the experimental verification of the hybrid testing method.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1\textwidth] {figure/4-3.eps}
-\caption{Controller for implementing the real-time hybrid testing method}
+\caption{Controller for implementing the hybrid testing method}
 \label{fig:4-3}
 \end{figure}
 
@@ -533,7 +531,7 @@ The only shear-type structural model without the upper TLCD shown in Figure~\ref
    \includegraphics[width=0.8\textwidth] {figure/4-4a.eps}
    \label{fig:4-4a}
  }
- \subfigure[real-time hybrid testing method]{
+ \subfigure[hybrid testing method]{
    \includegraphics[width=0.8\textwidth] {figure/4-4b.eps}
    \label{fig:4-4b}
  }
@@ -545,10 +543,10 @@ The only shear-type structural model without the upper TLCD shown in Figure~\ref
 
 
 
+\clearpage
+\subsection{Experimental System for Hybrid Testing of Building with TLMD}
 
-\subsection{Controller design of RT-HYTEM Building with TLMD}
-
-The difference between the conventional test method and RT-HYTEM is that the upper TLMD is adopted as the experimental part, while the structural model is numerically calculated by a computer in the RT-HYTEM, as shown in Figure~\ref{fig:5-12}. The control force acting between their interfaces is measured with a shear-type load cell which is mounted on the shaking table. Then, the measured force is fed-back to the numerical analysis part. Finally, the shaking table vibrates the upper experimental part with the responses calculated from the numerical analysis part.
+The difference between the conventional test method and hybrid testing method is that the upper TLMD is adopted as the experimental part, while the structural model is numerically calculated by a computer in the hybrid testing method, as shown in Figure~\ref{fig:5-12}. The control force acting between their interfaces is measured with a shear-type load cell which is mounted on the shaking table. Then, the measured force is fed-back to the numerical analysis part. Finally, the shaking table vibrates the upper experimental part with the responses calculated from the numerical analysis part.
 
 In this case, the shaking table is moved by the control signal sent from the control computer through DA channel of DAQ board. The amplitude and phase of the signal values measured at the shaking table, however, are different from the control signal sent from the control computer. In this paper, the inverse transfer function of a shaking table was designed through the definition of the transfer function of a shaking table, as shown in Figure~\ref{fig:5-13}. Then, a white-noise excitation test of the shaking table is carried out to compensate the dynamic characteristics between the shaking table and control signals,
 as shown in Figure~\ref{fig:5-14}. 
@@ -559,7 +557,7 @@ Figure~\ref{fig:2-7} shows the inverse transfer function of the shaking table wh
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.8\textwidth] {figure/5-12.eps}
-\caption{Conceptual view of the real-time hybrid shaking table testing}
+\caption{Conceptual view of the hybrid testing method of building with TLMD}
 \label{fig:5-12}
 \end{figure}
 
@@ -592,19 +590,19 @@ where $z$ and $u$ are state variable and input vector, and can be expressed as $
 \matr{D}&=\begin{bmatrix} -1/m & 1/m \end{bmatrix} \label{eq:5-13}
 \end{align}
 
-Finally, the controller both considering the numerical part of the SDOF structural model and the inverse transfer function of a shaking table is constructed to implement the RT-HYTEM as shown in Figure~\ref{fig:5-16}. Figure~\ref{fig:5-17} shows the experimental configuration of the test. Real-Time Hybrid Test is fatal to the noise and phase error because the shaking table is vibrated by the numerical part which is calculated in real-time. Accordingly, the hybrid test using the Real-Time Window Target of the MATLAB Simulink with the sampling rate of 1000 Hz was implemented to minimize the calculation and phase error in the actual test. Figure~\ref{fig:5-18} is an excitation model of the Real-Time Window Target of the MATLAB Simulink, and it includes the inverse transfer function of the shaking table and numerical analysis of the SDOF structure.
+Finally, the controller both considering the numerical part of the SDOF structural model and the inverse transfer function of a shaking table is constructed to implement the hybrid testing method as shown in Figure~\ref{fig:5-16}. Figure~\ref{fig:5-17} shows the experimental configuration of the test. The hybrid testing method is fatal to the noise and phase error because the shaking table is vibrated by the numerical part which is calculated in real-time. Accordingly, the hybrid test using the Real-Time Window Target of the MATLAB Simulink with the sampling rate of 1000 Hz was implemented to minimize the calculation and phase error in the actual test. Figure~\ref{fig:5-18} is an excitation model of the Real-Time Window Target of the MATLAB Simulink, and it includes the inverse transfer function of the shaking table and numerical analysis of the SDOF structure.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.8\textwidth] {figure/5-16.eps}
-\caption{Design of the controller for the real-time hybrid shaking table testing}
+\caption{Design of the controller for the hybrid testing method}
 \label{fig:5-16}
 \end{figure}
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.8\textwidth] {figure/5-17.eps}
-\caption{Photograph of the real-time hybrid shaking table testing}
+\caption{Photograph of the hybrid testing}
 \label{fig:5-17}
 \end{figure}
 
@@ -628,8 +626,8 @@ Finally, the controller both considering the numerical part of the SDOF structur
 \section{Experimental Verification}
 \subsection{Experimental result of Substructuring technique}
 
-The validity of the proposed real-time substructuring technique is verified for the experimental setting described in the previous sections. First, the shaking table test without feedback loop of accelerations measured from the experimental substructure into the shaking table controller in Figure~\ref{fig:2-11} is performed to experimentally confirm the validity of the proposed method. In this case, the third story acceleration of responses pre-calculated from the assumed whole building with structural parameters such as Eqs.~\eqref{eq:2-18} and \eqref{eq:2-19} is used as a reference signal in Figure~\ref{fig:2-8}. Figure~\ref{fig:2-12} compares the time histories and Fourier transform of the acceleration responses, which are measured from the experimental substructure and shaking table, with those calculated from the numerical analysis of the whole assumed structure. In other words, the responses corresponding to the 3rd, 4th and 5th story accelerations are compared. Also, Figures~\ref{fig:2-13}-\ref{fig:2-15} showing the variation of frequency components according to time lapse illustrate the spectrogram and contour plots of experimental and numerical accelerations of the 3rd, 4th and 5th story, respectively. As can be confirmed from Figure~\ref{fig:2-12}, the experimental accelerations obtained from the shaking table test without their feedback agree well with those obtained from the analysis of the whole assumed structure in both time and frequency domains. However, it can be observed that the small discrepancies are shown in the time histories of 4th and 5th story accelerations as shown from Figure~\ref{fig:2-12}, while the 3rd story acceleration is identical to the numerical one over the entire time history as known from Figures~\ref{fig:2-12}-\ref{fig:2-13}. These differences are caused by the inherent modes of experimental substructure; the frequency components of 2.5 and 8.6 Hz corresponding to the first and second modes of the experimental substructure, respectively, are observed in the measured acceleration of 4th story as known from Figure~\ref{fig:2-14}, and also the component of 2.5 Hz is expressed in the 5th story experimental acceleration as like Figure~\ref{fig:2-15}. It is considered that this tendency is especially conspicuous in the case of utilizing a lightly-damped testing model as an experimental substructure. Table 1 shows the frequency components observed in the time records of an experimental substructure from the test without its acceleration feedback and the natural frequencies calculated from the whole assumed structure with five stories. From Table~\ref{tab:2-1}, it can be noted that the first natural frequency of the experimental substructure is shifted from 2.5 Hz to 1.3 Hz by the dynamics of the three-story numerical substructure added to its base.
- Then, the real-time substructuring shaking table test expressed as Figure~\ref{fig:2-11} was carried out based on the acceleration feedback of the experimental substructure. Figure~\ref{fig:2-16} compares the responses measured by the test with the acceleration feedback of the experimental substructure with those calculated from the numerical analysis of the whole assumed structure with 5 DOFs. Also, Figures~\ref{fig:2-17}-\ref{fig:2-19} express the frequency components according to time lapse, which are observed in the measured responses from the test with feedback and the calculated ones of the 3rd, fourth and fifth story, respectively. As known from Figure~\ref{fig:2-16}, the inclination in entire time history responses measured from the proposed testing method agrees well with that calculated from the whole assumed structure. These are why the first mode responses of substructured system coincide well with those of the whole assumed system over the entire time range, as shown in Figures~\ref{fig:2-17}-\ref{fig:2-19}. However, as can be confirmed from Figures~\ref{fig:2-17}-\ref{fig:2-19}, instead of the second and third mode responses of substructured system, those of the experimental substructure are observed from the testing results in the vicinity of 2.5 and 8.6 Hz. It is considered that in the process of the acceleration feedback of the experimental substructure, its fundamental modes affect to the numerical substructure and then the numerical error occurs in calculating the numerical substructure.
+The validity of the proposed substructuring technique as part of hybrid testing method is verified for the experimental setting described in the previous sections. First, the shaking table test without feedback loop of accelerations measured from the experimental substructure into the shaking table controller in Figure~\ref{fig:2-11} is performed to experimentally confirm the validity of the proposed method. In this case, the third story acceleration of responses pre-calculated from the assumed whole building with structural parameters such as Eqs.~\eqref{eq:2-18} and \eqref{eq:2-19} is used as a reference signal in Figure~\ref{fig:2-8}. Figure~\ref{fig:2-12} compares the time histories and Fourier transform of the acceleration responses, which are measured from the experimental substructure and shaking table, with those calculated from the numerical analysis of the whole assumed structure. In other words, the responses corresponding to the 3rd, 4th and 5th story accelerations are compared. Also, Figures~\ref{fig:2-13}-\ref{fig:2-15} showing the variation of frequency components according to time lapse illustrate the spectrogram and contour plots of experimental and numerical accelerations of the 3rd, 4th and 5th story, respectively. As can be confirmed from Figure~\ref{fig:2-12}, the experimental accelerations obtained from the shaking table test without their feedback agree well with those obtained from the analysis of the whole assumed structure in both time and frequency domains. However, it can be observed that the small discrepancies are shown in the time histories of 4th and 5th story accelerations as shown from Figure~\ref{fig:2-12}, while the 3rd story acceleration is identical to the numerical one over the entire time history as known from Figures~\ref{fig:2-12}-\ref{fig:2-13}. These differences are caused by the inherent modes of experimental substructure; the frequency components of 2.5 and 8.6 Hz corresponding to the first and second modes of the experimental substructure, respectively, are observed in the measured acceleration of 4th story as known from Figure~\ref{fig:2-14}, and also the component of 2.5 Hz is expressed in the 5th story experimental acceleration as like Figure~\ref{fig:2-15}. It is considered that this tendency is especially conspicuous in the case of utilizing a lightly-damped testing model as an experimental substructure. Table 1 shows the frequency components observed in the time records of an experimental substructure from the test without its acceleration feedback and the natural frequencies calculated from the whole assumed structure with five stories. From Table~\ref{tab:2-1}, it can be noted that the first natural frequency of the experimental substructure is shifted from 2.5 Hz to 1.3 Hz by the dynamics of the three-story numerical substructure added to its base.
+ Then, the substructuring testing expressed as Figure~\ref{fig:2-11} was carried out based on the acceleration feedback of the experimental substructure. Figure~\ref{fig:2-16} compares the responses measured by the test with the acceleration feedback of the experimental substructure with those calculated from the numerical analysis of the whole assumed structure with 5 DOFs. Also, Figures~\ref{fig:2-17}-\ref{fig:2-19} express the frequency components according to time lapse, which are observed in the measured responses from the test with feedback and the calculated ones of the 3rd, fourth and fifth story, respectively. As known from Figure~\ref{fig:2-16}, the inclination in entire time history responses measured from the proposed testing method agrees well with that calculated from the whole assumed structure. These are why the first mode responses of substructured system coincide well with those of the whole assumed system over the entire time range, as shown in Figures~\ref{fig:2-17}-\ref{fig:2-19}. However, as can be confirmed from Figures~\ref{fig:2-17}-\ref{fig:2-19}, instead of the second and third mode responses of substructured system, those of the experimental substructure are observed from the testing results in the vicinity of 2.5 and 8.6 Hz. It is considered that in the process of the acceleration feedback of the experimental substructure, its fundamental modes affect to the numerical substructure and then the numerical error occurs in calculating the numerical substructure.
 
 \begin{figure}[ht]
 \centering
@@ -807,9 +805,9 @@ The validity of the proposed real-time substructuring technique is verified for 
 
 
 \clearpage
-\subsection{RT-HYTEM of a single story steel frame with a TLD}
-In this section, experimental verification of the RT-HYTEM is conducted for a single story steel frame with a TLD. First, the conventional TLD-structure interaction model shown in Figure~\ref{fig:3-4a} is tested. Then, the RT-HYTEM shown in Figure~\ref{fig:3-4b}, which incorporates the single story steel frame in the numerical calculation, is performed and the results from the two testing methods are compared to each other.
-For the numerical structural model used in RT-HYTEM, the single story steel frame is assumed to be an SDOF mass-damping-spring system. The structure has $0.6m$ of width, $1.0m$ of height and $169.7kg$ of measured floor mass. El Centro, Hachinohe, Mexico City, and Northridge earthquake waves were realized by the shaking table, and the resulting absolute accelerations of the floor and the shaking table were measured. The system identification was conducted using the measured absolute accelerations. The identified parameters slightly vary according to input earthquake waves. The averaged damping and stiffness coefficients are 14.6$N\cdot s/m$ and $9914.3N/m$, respectively, which correspond to $1.23Hz$ of structural natural frequency. The TLD shown in Figure~\ref{fig:3-4} has the size of $31(cm)\times14(cm)\times20(cm)$. The level of water in the TLD was adjusted to have $3.4cm$ that is theoretically calculated based on the linear wave theory\citep{soong1997passive} for the TLD to have fundamental sloshing frequency tuned to the identified structural natural frequency. As a result, the mass ratio of the TLD to the structure is about $1.3\%$. To confirm whether the numerically calculated frequency of the TLD is modulated to the structural one, the transfer function is shown in Figure~\ref{fig:3-5}, from the shaking table acceleration to the shear force by the TLD, was obtained by using the white noise excitation. It is observed in Figure~\ref{fig:3-5} that the TLD has the sloshing frequency of $1.25Hz$ which is very close to the structural natural frequency of $1.23Hz$.
+\subsection{Hybrid Testing Method of a Single Story Strcuture with a TLD}
+In this section, experimental verification of the hybrid testing method is conducted for a single story steel frame with a TLD. First, the conventional TLD-structure interaction model shown in Figure~\ref{fig:3-4a} is tested. Then, the hybrid testing method shown in Figure~\ref{fig:3-4b}, which incorporates the single story steel frame in the numerical calculation, is performed and the results from the two testing methods are compared to each other.
+For the numerical structural model used in hybrid testing method, the single story steel frame is assumed to be an SDOF mass-damping-spring system. The structure has $0.6m$ of width, $1.0m$ of height and $169.7kg$ of measured floor mass. El Centro, Hachinohe, Mexico City, and Northridge earthquake waves were realized by the shaking table, and the resulting absolute accelerations of the floor and the shaking table were measured. The system identification was conducted using the measured absolute accelerations. The identified parameters slightly vary according to input earthquake waves. The averaged damping and stiffness coefficients are 14.6$N\cdot s/m$ and $9914.3N/m$, respectively, which correspond to $1.23Hz$ of structural natural frequency. The TLD shown in Figure~\ref{fig:3-4} has the size of $31(cm)\times14(cm)\times20(cm)$. The level of water in the TLD was adjusted to have $3.4cm$ that is theoretically calculated based on the linear wave theory\citep{soong1997passive} for the TLD to have fundamental sloshing frequency tuned to the identified structural natural frequency. As a result, the mass ratio of the TLD to the structure is about $1.3\%$. To confirm whether the numerically calculated frequency of the TLD is modulated to the structural one, the transfer function is shown in Figure~\ref{fig:3-5}, from the shaking table acceleration to the shear force by the TLD, was obtained by using the white noise excitation. It is observed in Figure~\ref{fig:3-5} that the TLD has the sloshing frequency of $1.25Hz$ which is very close to the structural natural frequency of $1.23Hz$.
 
 \begin{figure}[!ht]
 \centering
@@ -817,7 +815,7 @@ For the numerical structural model used in RT-HYTEM, the single story steel fram
    \includegraphics[width=0.8\textwidth] {figure/3-4a.eps}
    \label{fig:3-4a}
  }
- \subfigure[Real-time hybrid shaking table test]{
+ \subfigure[Hybrid shaking table test]{
    \includegraphics[width=0.8\textwidth] {figure/3-4b.eps}
    \label{fig:3-4b}
  }
@@ -878,7 +876,7 @@ At first, the conventional shaking table test is shown in Figure~\ref{fig:3-4a} 
 \label{fig:3-7}
 \end{figure}
 
-Then, the RT-HYTEM is applied with the experimental set-up shown in Figure~\ref{fig:3-4b}. For its implementation for the controlled case, the identified structural parameters are reflected in the numerical part expressed by the shaded region in the integrated controller shown in Figure~\ref{fig:3-3}. The continuous filters are converted into discrete ones with a time interval of 0.01 second. Figures~\ref{fig:3-8} and \ref{fig:3-9} compare the controlled accelerations obtained by performing the conventional and the RT-HYTEM in time and frequency domains, respectively. The effectiveness of the RT-HYTEM is verified from the fact that the experimental results from two methods coincide well with each other on the whole. The small discrepancies existing in the controlled responses subjected to El Centro and Hachinohe earthquakes are considered to result from the underestimation of damping coefficients in the numerical structural model since averaged parameters for the four earthquake data were used.
+Then, the hybrid testing method is applied with the experimental set-up shown in Figure~\ref{fig:3-4b}. For its implementation for the controlled case, the identified structural parameters are reflected in the numerical part expressed by the shaded region in the integrated controller shown in Figure~\ref{fig:3-3}. The continuous filters are converted into discrete ones with a time interval of 0.01 second. Figures~\ref{fig:3-8} and \ref{fig:3-9} compare the controlled accelerations obtained by performing the conventional and the hybrid testing method in time and frequency domains, respectively. The effectiveness of the hybrid testing method is verified from the fact that the experimental results from two methods coincide well with each other on the whole. The small discrepancies existing in the controlled responses subjected to El Centro and Hachinohe earthquakes are considered to result from the underestimation of damping coefficients in the numerical structural model since averaged parameters for the four earthquake data were used.
 
 \begin{figure}[!ht]
 \centering
@@ -899,7 +897,7 @@ Then, the RT-HYTEM is applied with the experimental set-up shown in Figure~\ref{
    \label{fig:3-8d}
  }
 \caption{Comparisons of controlled structural accelerations in the time domain
-(dotted line : conventional shaking table test, solid line : real-time hybrid shaking table test)
+(dotted line : conventional shaking table test, solid line : hybrid shaking table test)
 }
 \label{fig:3-8}
 \end{figure}
@@ -922,14 +920,14 @@ Then, the RT-HYTEM is applied with the experimental set-up shown in Figure~\ref{
    \includegraphics[width=0.45\textwidth] {figure/3-9d.eps}
    \label{fig:3-9d}
  }
-\caption{Comparisons of controlled structural accelerations in the frequency domain (dotted line : conventional shaking table test, solid line : real-time hybrid shaking table test)}
+\caption{Comparisons of controlled structural accelerations in the frequency domain (dotted line : conventional shaking table test, solid line : hybrid shaking table test)}
 \label{fig:3-9}
 \end{figure}
 
 \clearpage
-\subsection{RT-HYTEM of three story structure with a TLD}
-The control performance of a TLD installed in a three-story structure is investigated by using the RT-HYTEM. The structure is assumed to be a three story shear-type model, which has identical story properties as follows; $m_{i}=128.8kg$, $c_{i}=13.52N\cdot s/m$, $k_{i}=33908N/m$ for $i=1,2,3$. The structure has natural frequencies of $1.15Hz$, $3.22Hz$ and $4.65Hz$. The TLD discussed in the previous section is used, and its water level is modulated to $4.6cm$ for the TLD to have sloshing frequency of $1.15Hz$. As a result, the mass ratio of the TLD to the structure is about $2\%$. The four earthquake waves used for the excitation of the single story steel frame were scaled to have peak acceleration of $40gal$. The uncontrolled structural responses were obtained by removing the feedback loop of the TLD-generated interacting force, which causes the numerical structural model to be excited only by the base earthquake motion. 
-Figures~\ref{fig:3-10} and \ref{fig:3-11} compare the uncontrolled and controlled accelerations of the third story in time and frequency domains, respectively, which is realized by the shaking table through the RT-HYTEM. It is observed that the structural accelerations are significantly reduced by the TLD, especially in the region of the fundamental frequency. Table~\ref{tab:3-1} indicates that the acceleration is reduced by $4-30\%$ in peak and by $18-60\%$ in RMS responses. It is also identified in Figure~\ref{fig:3-11d} that the TLD lessens the additional second mode response of the structure. Figure~\ref{fig:3-12} shows the typical sloshing and slamming behaviors of the water in the TLD tanks during the experiment, which occur in the small and large amplitude of the water motion, respectively\citep{yalla2001liquid}.
+\subsection{Hybrid Testing Method of Three Story Structure with a TLD}
+The control performance of a TLD installed in a three-story structure is investigated by using the hybrid testing method. The structure is assumed to be a three story shear-type model, which has identical story properties as follows; $m_{i}=128.8kg$, $c_{i}=13.52N\cdot s/m$, $k_{i}=33908N/m$ for $i=1,2,3$. The structure has natural frequencies of $1.15Hz$, $3.22Hz$ and $4.65Hz$. The TLD discussed in the previous section is used, and its water level is modulated to $4.6cm$ for the TLD to have sloshing frequency of $1.15Hz$. As a result, the mass ratio of the TLD to the structure is about $2\%$. The four earthquake waves used for the excitation of the single story steel frame were scaled to have peak acceleration of $40gal$. The uncontrolled structural responses were obtained by removing the feedback loop of the TLD-generated interacting force, which causes the numerical structural model to be excited only by the base earthquake motion. 
+Figures~\ref{fig:3-10} and \ref{fig:3-11} compare the uncontrolled and controlled accelerations of the third story in time and frequency domains, respectively, which is realized by the shaking table through the hybrid testing method. It is observed that the structural accelerations are significantly reduced by the TLD, especially in the region of the fundamental frequency. Table~\ref{tab:3-1} indicates that the acceleration is reduced by $4-30\%$ in peak and by $18-60\%$ in RMS responses. It is also identified in Figure~\ref{fig:3-11d} that the TLD lessens the additional second mode response of the structure. Figure~\ref{fig:3-12} shows the typical sloshing and slamming behaviors of the water in the TLD tanks during the experiment, which occur in the small and large amplitude of the water motion, respectively\citep{yalla2001liquid}.
 
 \begin{figure}[!ht]
 \centering
@@ -949,7 +947,7 @@ Figures~\ref{fig:3-10} and \ref{fig:3-11} compare the uncontrolled and controlle
    \includegraphics[width=0.8\textwidth] {figure/3-10d.eps}
    \label{fig:3-10d}
  }
-\caption{Absolute accelerations in the time domain, measured from the top story of MDOF structure with a TLD by the real-time hybrid shaking table test (dotted line : without control, solid line : with control))
+\caption{Absolute accelerations in the time domain, measured from the top story of MDOF structure with a TLD by the hybrid testing method (dotted line : without control, solid line : with control))
 }
 \label{fig:3-10}
 \end{figure}
@@ -972,7 +970,7 @@ Figures~\ref{fig:3-10} and \ref{fig:3-11} compare the uncontrolled and controlle
    \includegraphics[width=0.45\textwidth] {figure/3-11d.eps}
    \label{fig:3-11d}
  }
-\caption{Absolute accelerations in the frequency domain, measured from the top story of MDOF structure with a TLD by the real-time hybrid shaking table test (dotted line : without control, solid line : with control)}
+\caption{Absolute accelerations in the frequency domain, measured from the top story of MDOF structure with a TLD by the hybrid testing method (dotted line : without control, solid line : with control)}
 \label{fig:3-11}
 \end{figure}
 
@@ -1007,7 +1005,7 @@ Controlled&0.74&0.66&0.45&0.27\\ \bottomrule
 \end{table}
 
 % \section{Concluding Remarks}
-% In this study, a real-time hybrid shaking table test was conducted to verify the seismic control performance of the TLD installed in the building structures. The TLD installed at the top floor of the structure is physically tested, and simultaneously numerical calculation is carried out for the assumed analytical structural model. Comparison between the structural responses obtained by the RT-HYTEM and the conventional shaking table test of a single story steel frame with TLD indicates that the performance of the TLD can be accurately evaluated using the RT-HYTEM without the physical structural model. Finally, the uncontrolled and TLD-controlled structural responses of a three-story structure are obtained by the RT-HYTEM in both time, and frequency domains, showing that TLD can effectively mitigate the seismic responses of building structures and the RT-HYTEM can reproduce the dynamic behavior of TLD-structure interaction systems for both the uncontrolled and controlled case. The RT-HYTEM can also be applied to the performance evaluation of tuned liquid column damper which has strong inherent nonlinearity.
+% In this study, a real-time hybrid shaking table test was conducted to verify the seismic control performance of the TLD installed in the building structures. The TLD installed at the top floor of the structure is physically tested, and simultaneously numerical calculation is carried out for the assumed analytical structural model. Comparison between the structural responses obtained by the hybrid testing method and the conventional shaking table test of a single story steel frame with TLD indicates that the performance of the TLD can be accurately evaluated using the hybrid testing method without the physical structural model. Finally, the uncontrolled and TLD-controlled structural responses of a three-story structure are obtained by the hybrid testing method in both time, and frequency domains, showing that TLD can effectively mitigate the seismic responses of building structures and the hybrid testing method can reproduce the dynamic behavior of TLD-structure interaction systems for both the uncontrolled and controlled case. The hybrid testing method can also be applied to the performance evaluation of tuned liquid column damper which has strong inherent nonlinearity.
 
 
 
@@ -1016,8 +1014,8 @@ Controlled&0.74&0.66&0.45&0.27\\ \bottomrule
 
 
 
-\subsection{RT-HYTEM of a single story steel frame with a TLCD}
-At first, the conventional shaking table test with this TLCD shown in Figure~\ref{fig:4-4a} is performed to reduce the structural response. Two earthquake records with the maximum acceleration of $100gal$ due to the shaking table performance are used to excite the TLCD-structure system with control case. Then, the hybrid shaking table test is conducted with the experimental set-up shown in Figure~\ref{fig:4-4b}. For its experimental implementation, the identified structural parameters are reflected in the numerical part expressed by the shaded region in the integrated controller shown in Figure~\ref{fig:4-3}. The continuous filters in the figure are converted into discrete ones with a time step of 0.01 sec in the actual implementation of the experiment. Figure~\ref{fig:4-5} compare the controlled accelerations experimentally measured by implementing the conventional and the real-time hybrid shaking table tests in both time and frequency domain, respectively. The validity of the real-time hybrid shaking table test performed in this paper is verified from the fact that the experimental results from two methods well coincide with each other on the whole.
+\subsection{Hybrid Testing Method of a Single Story Structure with a TLCD}
+At first, the conventional shaking table test with this TLCD shown in Figure~\ref{fig:4-4a} is performed to reduce the structural response. Two earthquake records with the maximum acceleration of $100gal$ due to the shaking table performance are used to excite the TLCD-structure system with control case. Then, the hybrid shaking table test is conducted with the experimental set-up shown in Figure~\ref{fig:4-4b}. For its experimental implementation, the identified structural parameters are reflected in the numerical part expressed by the shaded region in the integrated controller shown in Figure~\ref{fig:4-3}. The continuous filters in the figure are converted into discrete ones with a time step of 0.01 sec in the actual implementation of the experiment. Figure~\ref{fig:4-5} compare the controlled accelerations experimentally measured by implementing the conventional and the hybrid testing method in both time and frequency domain, respectively. The validity of the hybrid testing method performed in this paper is verified from the fact that the experimental results from two methods well coincide with each other on the whole.
 
 \begin{figure}[!ht]
 \centering
@@ -1037,14 +1035,14 @@ At first, the conventional shaking table test with this TLCD shown in Figure~\re
    \includegraphics[width=0.45\textwidth] {figure/4-5d.eps}
    \label{fig:4-5d}
  }
-\caption{Comparisons between the results from the conventional testing method(dotted line) and those from the RT-HYTEM(solid line) for the controlled response}
+\caption{Comparisons between the results from the conventional testing method(dotted line) and those from the hybrid testing method(solid line) for the controlled response}
 \label{fig:4-5}
 \end{figure}
 
 % \section{Concluding Remarks}
-% In this study, a real-time hybrid shaking table test was conducted to verify the seismic control performance of the TLCD installed in the building structures. The TLCD installed at the top floor of the structure is physically tested, and simultaneously numerical calculation is carried out for the assumed analytical structural model. Comparison between the structural responses obtained by the RT-HYTEM and the conventional shaking table test of a single story steel frame with TLCD indicates that the performance of the TLCD can be accurately evaluated using the RT-HYTEM without the physical structural model.
+% In this study, a real-time hybrid shaking table test was conducted to verify the seismic control performance of the TLCD installed in the building structures. The TLCD installed at the top floor of the structure is physically tested, and simultaneously numerical calculation is carried out for the assumed analytical structural model. Comparison between the structural responses obtained by the hybrid testing method and the conventional shaking table test of a single story steel frame with TLCD indicates that the performance of the TLCD can be accurately evaluated using the hybrid testing method without the physical structural model.
 
-\subsection{Conventional experiment of a building controlled by TLMD}
+\subsection{Conventional Experiment of a Building Controlled by TLMD}
 
 \subsubsection{Experimental installation}
 
@@ -1107,7 +1105,7 @@ m_{s}\ddot{x}_{1}+c_{s}\dot{x}_{1}+k_{s}x_{1} = k_{2}A sin \left(2 \pi f_{e} t \
 \label{fig:5-5}
 \end{figure}
 
-\subsection{Test results}
+\subsection{Experimental results}
 In this test, the building model was excited by a dynamic actuator installed on the strong wall. Maximum excitation displacement of the dynamic actuator was set to be 4 mm. Harmonic waves with the frequency interval of 0.05 Hz from 0.1 to 3.0 Hz were imposed on the moving mass of a building model by the actuator. Especially, harmonic waves with the frequency interval of 0.01 Hz were excited to the moving mass in the vicinity of its natural frequencies during 200s. Then, the steady-state response of the moving mass was obtained in each excitation frequency.
 
 First, the test was performed in the TMD control direction. In this case, the frequency of structural model was set to 0.82 Hz by connecting springs with the stiffness of 110,000 N/m to the structural model with the mass of 4,250 kg. Figures~\ref{fig:5-6} and \ref{fig:5-7} show the displacement and acceleration response of the SDOF structure in the frequency domain, respectively. It is verified that the displacement response of the SDOF structure was reduced by $82\%$ for the case in the TMD control direction. The displacement control performance index of a TMD is 0.18, as shown in Figure~\ref{fig:5-6}. Also, the acceleration response of the SDOF structure was reduced by $80\%$, and the acceleration control performance index of a TMD is 0.20, as shown in Figure~\ref{fig:5-7}. Figures~\ref{fig:5-6} and \ref{fig:5-9} show the displacement and acceleration response of the SDOF structure in the time domain, respectively. Also, the response of the SDOF structure tuned by the TMD is considerably reduced at a resonance frequency of 0.82 Hz, as shown in Figure~\ref{fig:5-8}.
@@ -1156,9 +1154,9 @@ Then, the test was carried out in the TLCD control direction. In this case, the 
 \label{fig:5-11}
 \end{figure}
 
-\subsection{RT-HYTEM of a single story of a building controlled by TLMD}
+\subsection{Hybrid Testing Method of a Single Story Building Controlled by TLMD}
 
-A TLMD is excited by uniaxial shaking table. Shear type load cell and acceleration sensors are attached on the shaking table to monitor the dynamic characteristic of the shaking table. The vibration control and data acquisition are conducted using a real-time digital signal processor. The main task of the data acquisition board is data conversion; it converts the measured shear force and acceleration to the digital data and converts the reference signal computed by the control program MATLAB to the analog data. An eight-channel data acquisition system was adopted which uses an NI DAQcard-6036E board and a BNC-2110 BNC cable connector. At the real-time hybrid test, the control performance results of the TLMD were evaluated. In this test, the checking point is whether the natural frequencies of the TLMD in the TMD and TLCD control direction were seen at 0.82 and 0.73 Hz, respectively. Then, control performance of the bidirectional TLMD will be evaluated.
+A TLMD is excited by uniaxial shaking table. Shear type load cell and acceleration sensors are attached on the shaking table to monitor the dynamic characteristic of the shaking table. The vibration control and data acquisition are conducted using a real-time digital signal processor. The main task of the data acquisition board is data conversion; it converts the measured shear force and acceleration to the digital data and converts the reference signal computed by the control program MATLAB to the analog data. An eight-channel data acquisition system was adopted which uses an NI DAQcard-6036E board and a BNC-2110 BNC cable connector. At the hybrid testing method, the control performance results of the TLMD were evaluated. In this test, the checking point is whether the natural frequencies of the TLMD in the TMD and TLCD control direction were seen at 0.82 and 0.73 Hz, respectively. Then, control performance of the bidirectional TLMD will be evaluated.
 
 First, the test was performed in the TMD control direction. Figures~\ref{fig:5-19} and \ref{fig:5-20} show the displacement and acceleration response in the frequency domain, respectively. It is observed that the displacement response of the shaking table was reduced by 78\% for the case in the TMD control direction. The displacement control performance index of a TMD is 0.22, as shown in Figure~\ref{fig:5-19}. Also, the acceleration response of the shaking table was reduced by 78\%, as shown in Figure~\ref{fig:5-20}. Figure~\ref{fig:5-21} shows the displacement in the time domain. The response of the shaking table is considerably reduced by 78\% at a resonance frequency of 0.82 Hz.
 
@@ -1206,9 +1204,9 @@ Then, the test was performed in the TLCD control direction. Figures~\ref{fig:5-2
 \label{fig:5-24}
 \end{figure}
 
-\subsubsection{Comparisons of conventional experiment and RT-HYTEM results}
+\subsubsection{Comparisons of conventional experiment and hybrid testing method results}
 
-In order to compare the control performances of the TLMD at the RT-HYTEM and conventional method, $J_{1}$, $J_{2}$, $J_{3}$, $J_{4}$, are represented by
+In order to compare the control performances of the TLMD at the hybrid testing method and conventional method, $J_{1}$, $J_{2}$, $J_{3}$, $J_{4}$, are represented by
 
 \begin{align}
 J_{1}&=\frac{\text{max} \left[x_{c}(t) \right]}{\text{max} \left[x_{u}(t) \right]} \label{eq:5-14} \\
@@ -1249,14 +1247,14 @@ RMS value & $J_{3}$ & 0.23 & 0.31\\
 & $J_{4}$ & 0.23 & 0.31\\
 \bottomrule
 \end{tabularx}
-\caption{Control performance of real-time hybrid test}
+\caption{Control performance of hybrid testing method}
 \label{tab:5-5}
 \end{table}
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.8\textwidth] {figure/5-25.eps}
-\caption{Uncontrolled displacement comparison in the time domain between the real-structure test and real-time hybrid test (TMD direction)}
+\caption{Uncontrolled displacement comparison in the time domain between the real-structure test and hybrid testing method (TMD direction)}
 \label{fig:5-25}
 \end{figure}
 
@@ -1265,7 +1263,26 @@ RMS value & $J_{3}$ & 0.23 & 0.31\\
 
 % The control performances of the TLMD were checked and compared with the two testing methods. In the TLCD and TMD control direction, the errors of the peak values between the conventional test and hybrid test were 0.01 and 0.02-0.04, respectively. Also, the errors of RMS values between the conventional test and hybrid test were up to 0.06. However, tuning error and outside environment are thought as the causes of the differences. The error of the convergence times reaching to the peak value as shown in Figure~\ref{fig:5-25}. This is caused by the minute error of the mass, stiffness and damping ratio of the numerical analysis, which was thought for either reason.
 
-% As showing the similar results of the two tests, the outstanding performance of the two-way TLMD was verified. Also, the results indicate that the RT-HYTEM, which does not require the physical structural model but with simple installation, as well as the conventional method, can accurately evaluate the control performance of a control device.
+% As showing the similar results of the two tests, the outstanding performance of the two-way TLMD was verified. Also, the results indicate that the hybrid testing method, which does not require the physical structural model but with simple installation, as well as the conventional method, can accurately evaluate the control performance of a control device.
 
-
+\clearpage
 \section{Summary}
+In this chapter, a substructuring technique as part of hybrid testing method for the shaking table test was proposed. The proposed substructuring technique adopts the upper part of the whole structure as the experimental substructure, which corresponds to a physical test model. The lower part is modeled numerically. In order to verify the validity and accuracy of the proposed technique, a shaking table test was conducted. The result of the study can be summarized as follows.
+\begin{enumerate}
+\item To reduce the distortion of the interface acceleration, the inverse transfer function of the shaking table was identified and its state space realization was implemented in the shaking table controller.
+\item In this paper, the linear transfer function approach for controlling the motion of a shaking table was considered to experimentally verify the proposed method for a linear experimental part. However, this approach would be inappropriate for a coupled non-linear system leading to experimental instability. Therefore, in such case the controller using the inverse transfer function of shaking table, shown in Figure~\ref{fig:2-11}, would be modified to compensate an experimental instability.
+\item The interface force between the experimental and numerical substructures was obtained using only acceleration measurement and mass information, so that high-capacity loads cell and installation jigs are not required in the experiment. 
+\item The proposed method basing the interface force measurement on acceleration measurements from an experimental substructure is partially available only when the mass distribution is discrete - for example this would be applicable to the TMD as an experimental part. Also, the interface force measurement using force transducers is required to perform the proposed method when wind forces are applied to the experimental substructure.
+\item Experimental results demonstrate that the proposed substructuring technique can reproduce the dynamic behavior of the assumed whole structure.
+\item Unexpected vibration of the experimental substructure can be induced by the feedback of responses including its inherent natural modes and then by the error occurred in calculating the numerical substructure.
+\item It is considered that to minimize the effect of natural modes of an experimental substructure on the substructured system, the structural model as havily-damped as possible would be used as an experimental part.
+\item The proposed technique can be extended to the substructuring technique with the middle part of a whole structure in combination with the conventional substructuring technique employing lower part as the experimental substructure.
+\end{enumerate}
+
+
+The TLD installed at the top floor of the structure is physically tested, and simultaneously numerical calculation is carried out for the assumed analytical structural model. Comparison between the structural responses obtained by the hybrid testing method and the conventional shaking table test of a single story steel frame with TLD and TLCD indicates that the performance of the TLD and TLCD can be accurately evaluated using the hybrid testing method without the physical structural model. Finally, the uncontrolled and TLD-controlled structural responses of a three story structure are obtained by the hybrid testing method in both time and frequency domains, showing that TLD can effectively mitigate the seismic responses of building structures and the ybrid testing method can reproduce the dynamic behavior of TLD–structure interaction systems for both the uncontrolled and controlled case. The hybrid testing method can be also applied to the performance evaluation of tuned liquid column damper which has strong inherent nonlinearity.
+
+
+The bi-directional control performance of the TLMD was confirmed through the conventional and hybrid testing method. First, resonance frequencies in the TMD and TLCD control direction were confirmed at 0·82 and 0·73 Hz. In the TMD control direction (x-direction), 80\% of the uncontrolled peak response of the target structure was removed by a TLMD. Also, in the TLCD control direction (y-direction), 70\% was removed by a TLMD. 
+The control performances of the TLMD were checked and compared through the two testing methods. In the TLCD and TMD control direction, the errors of the peak values between the conventional and hybrid testing method were 0·01 and 0·02∼0·04, respectively. Also, the errors of RMS values between the conventional testing method and hybrid testing method were up to 0·06. However, tuning error and outside environment are thought as the causes of the differences. The error of the convergence times reaching to the peak value as shown in Figure~\ref{fig:5-25}. This is caused by the minute error of the mass, stiffness and damping ratio at the numerical analysis, which was thought as either reason. 
+As showing the similar results of the two kind of testing methods, the hybrid testing method, which does not require the physical structural model but with simple installation, as well as the conventional testing method, can accurately evaluate the control performance of a control device.
