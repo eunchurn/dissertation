@@ -105,6 +105,7 @@
         {\begin{itemize}[#1,leftmargin=*,parsep=0pt,itemsep=0pt,topsep=0pt,partopsep=0pt]}
         {\end{itemize}}
 
+\usepackage{pdfpages}
 \begin{document}
 \nobibliography*
 %\fancyhead[RO,LE]{\thepage}
@@ -112,7 +113,6 @@
 \include{cover-main}
 \include{cover-inner}
 \include{auth}
-%\include{auth}
 
 % \dominitoc
 
@@ -122,7 +122,7 @@
 
 % \section*{Acknowledgments}
 
-
+\renewcommand{\thepage}{\roman{page}}% Roman page numbers
 \tableofcontents
 \fancyhead[RO,LE]{TABLE OF CONTENTS}
 %\addcontentsline{toc}{chapter}{\listfigurename}
@@ -134,13 +134,14 @@
 
 
 
-\mainmatter
+
 
 \fancyhead[RO,LE]{ABSTRACT}
 \include{abstract}
 
-
-%\include{combined}
+\mainmatter
+\renewcommand{\thepage}{\arabic{page}}% Arabic page numbers
+\pagenumbering{arabic}
  \fancyhead[RO,LE]{\textit{Chapter. \thechapter. Introduction}}
  \include{chap1}
  % Dynamic loads
@@ -151,42 +152,22 @@
  % RT-HSTTM
  \fancyhead[RO,LE]{\textit{Chapter. \thechapter. Hybrid Testing Method on a Semi-actively Controlled Building Structure Equipped with Full-scale MR Dampers}}
  \include{chap4}
-% \fancyhead[RO,LE]{\textit{Chapter. \thechapter. Experimental Verification}}
-% \include{chap5}
-
-
-
-
-
-% \fancyhead[RO,LE]{\textit{Chapter. \thechapter. RT-HSTTM of building with a Tuned Liquid Column Damper}}
-% \include{chapter4}
-% \fancyhead[RO,LE]{\textit{Chapter. \thechapter. RT-HSTTM of building with a Tuned Liquid Mass Damper}}
-% \include{chapter5}
-% \fancyhead[RO,LE]{\textit{Chapter. \thechapter. RT-HYTEM of Building Equipped with Full-scale MR Damper}}
-% \include{chapter8}
-%\fancyhead[RO,LE]{\textit{Chapter. \thechapter. Design of Measurement System for Structural Health Monitoring}}
-%\include{measurement}
 \fancyhead[RO,LE]{\textit{Chapter. \thechapter. Conclusions}}
 \include{conclusions}
 \fancyhead[RO,LE]{\textit{초 록}}
 \include{abstract-ko}
-% Excitation System
 
-% RT-HYTEM
-
-% System ID & SHM
-
-\appendix
+%\appendix
 
 %\include{Appendix1}
 \fancyhead[RO,LE]{Bibliography}
 \bibliographystyle{apalike}
+%\chapter*{Bibliography}
+\addcontentsline{toc}{chapter}{Bibliography}
 \bibliography{references}
 
 \clearpage
 \fancyhead[RO,LE]{Curriculum Vit\ae}
 \include{cv}
-
-% \end{vcenterpage}
 
 \end{document}
