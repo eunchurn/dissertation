@@ -1070,7 +1070,7 @@ Measurement devices used in this experiment are displacement sensors, accelerome
 
 The measured data from the above measurement devices are collected and digitalized through a data acquisition system (NI DAQ-card 6062E). The collected data is selected for each semi-active control algorithm, and finally, determined command voltage is sent to a current generator, which converts the voltage to the corresponding current. Then the MR damper can control the building structure with the generated current.
 
-Finally, the MR damper-based semiactive feedback control system, which has 12 inputs and two outputs, can be formed as shown in Figure~\ref{fig:n3-11}.
+Finally, the MR damper controlled semi-active feedback system, which has 12 inputs and two outputs, can be formed as shown in Figure~\ref{fig:n3-11}.
 
 \begin{figure}[!ht]
 \centering
@@ -1079,7 +1079,7 @@ Finally, the MR damper-based semiactive feedback control system, which has 12 in
 \caption{MR damper-based semi-active feed back control system.}
 \end{figure}
 
-The CO, as well as the cost function-based SNC algorithm, needs full state or the specific state of the structural system in order to calculate the appropriate desired control force. The control implementation requires a lot of sensors, and that would be even impossible. Therefore the Kalman filters as an observer for state estimation is desirable. Consider a controllable and observable system and assume that full state estimation is required. Then the main purpose of the general Kalman filter is constructing a state estimate $\hat{\mathbf{x}}(t)$ that minimizes the steady-state error  covariance which is defined by:
+The CO, as well as the cost function-based SNC algorithm, needs full state or the particular state of the structural system to calculate the appropriate desired control force. The control implementation requires full number of sensors for all DOFs. Therefore the Kalman filters as an observer for state estimation is desirable. Considered a controllable and observable system and assumed that full state estimation is required. Then the primary purpose of the general Kalman filter is constructing a state estimate $\hat{\mathbf{x}}(t)$ that minimizes the steady-state error  covariance which is defined by:
 
 \begin{equation}\label{eq:n3-13}
 P = \lim_{t\to\infty} E\left(\left[ \mathbf{x} - \hat{\mathbf{x}} \right] \left[ \mathbf{x} - \hat{\mathbf{x}} \right]^{\top}\right)
