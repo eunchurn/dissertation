@@ -27,7 +27,7 @@ The necessity of testing the upper substructure is found in diverse structures. 
 \caption{Conceptual illustrations of the substructuring methods}
 \end{figure}
 
-On these backgrounds, this subsection proposes a shaking table testing method using the upper part of a building structure as the experimental substructure based on the acceleration feedback from the experimental substructure. Also, the proposed method is verified experimentally through real-time implementation. Figure~\ref{fig:2-2} illustrates the schematic diagram of the proposed testing method in this study. At first, the interface force acting between the upper experimental and lower numerical substructures is calculated based on the acceleration feedback of the experimental substructure which is mounted on shaking table. Then the interface acceleration required to replicate the dynamic behavior of the whole structure is calculated from the numerical substructure subjected to the interface force and assumed base motion for the entire structure. Finally, shaking table excites the upper experimental substructure according to the command signal from the shaking table controller. The series of above processes are performed during a single time interval and repeated over the entire duration of the experiment.
+On these backgrounds, this subsection proposes a shaking table testing method using the upper part of a building structure as the experimental substructure based on the acceleration feedback from the experimental substructure. Also, the proposed method is verified experimentally through real-time implementation. Figure~\ref{fig:2-2} illustrates the schematic diagram of the proposed testing method in this chapter. At first, the interface force acting between the upper experimental and lower numerical substructures is calculated based on the acceleration feedback of the experimental substructure which is mounted on shaking table. Then the interface acceleration required to replicate the dynamic behavior of the whole structure is calculated from the numerical substructure subjected to the interface force and assumed base motion for the entire structure. Finally, shaking table excites the upper experimental substructure according to the command signal from the shaking table controller. The series of above processes are performed during a single time interval and repeated over the entire duration of the experiment.
 
 \begin{figure}[ht]
 \centering
@@ -198,7 +198,7 @@ The structural parameters for the first story of the experimental structure give
 
 \begin{align}
 i(t)=&-m_{E(1)}\ddot{Y}_{E(1)}(t)-m_{E(2)}\ddot{Y}_{E(2)}(t) \label{eq:2-19} \\
-\ddot{Y}_{N(3)}(t)=&-c_{N(3)}\left(\dot{Y}_{N(3)}-\dot{Y}_{N(2)}\right) -k_{N(3)}\left(Y_{N(3)}-Y_{N(2)}\right)+i(t) \label{eq:2-20}
+\ddot{Y}_{N(3)}(t)=&\left[-c_{N(3)}\left(\dot{Y}_{N(3)}-\dot{Y}_{N(2)}\right) -k_{N(3)}\left(Y_{N(3)}-Y_{N(2)}\right)+i(t)\right]/m_{N(3)} \label{eq:2-20}
 \end{align}
 
 Eq.~\eqref{eq:2-20} means that the interface force, which is produced by the shaking table, is calculated using the two measured absolute accelerations of the experimental substructure. Then, the interface acceleration is calculated from the numerical substructure expressed by Eq.~\eqref{eq:2-11}. Figure~\ref{fig:2-11} represents the block diagram of the entire substructuring testing system including the numerical substructure marked by the shaded area. In Figure~\ref{fig:2-11}, the ground acceleration, $\ddot{Y}_{g}$, is not a measured signal but an input data prescribed by a user. Finally, the shaking table motion is controlled using the inverse transfer function of Eq.~\eqref{eq:2-17} to minimize the errors between the interface acceleration computed as the third story absolute acceleration of the numerical substructure, $\ddot{Y}_{N(3)}$, and the actual shaking table acceleration. Therefore, the shaking table itself works as the interface node of Figure~\ref{fig:2-3b} and excites the upper experimental substructure. In the actual implementation of the shaking table test, the continuous filters included in Figure~\ref{fig:2-11} are converted into discrete filters with a time step of 0.01 sec.
@@ -325,23 +325,23 @@ where, $\matr{0}_{n \times n}$ and $\matr{I}_{n \times n}$ are the zero and unit
 \section{Hybrid Testing Method for the Performance Evaluation of a Tuned Liquid Mass Damper}
 \label{chap:5}
 
-In previous study\citep{heo2009performance}, a new control device, which is called tuned liquid mass damper (TLMD), was developed and discussed in this section. The dynamic characteristics of a TLMD used in this study are that its mass is composed of both a mass of TLCD frame itself and that of liquid in a tank. Natural rubber columns were used to substitute the stiffness of a TMD. Therefore, a TLMD operates as a TLCD in one direction and behaves as a TMD in the other orthogonal direction. 
+In previous study\citep{heo2009performance}, a new control device, which is called tuned liquid mass damper (TLMD), was developed and discussed in this section. The dynamic characteristics of a TLMD used in this thesis are that its mass is composed of both a mass of TLCD frame itself and that of liquid in a tank. Natural rubber columns were used to substitute the stiffness of a TMD. Therefore, a TLMD operates as a TLCD in one direction and behaves as a TMD in the other orthogonal direction. 
 
 In this section, the control performance of the proposed TLMD for reducing bidirectional responses of building structures is experimentally verified through both a conventional structural testing method and hybrid testing method. First, the control performance of a TLMD is evaluated by forced vibrating sinusoidal signal to an experimental prototype which is composed of both a TLMD and a  building structure. Then, the hybrid testing method is performed to evaluate the performance of a TLMD, in which the building structural model is used as a numerical part, and the TLMD is experimentally tested.
 
 \subsection{Developed TLMD Model}
-Figure~\ref{fig:5-1} shows the plan view of the TLMD used in this study. The bidirectional TLMD would be installed in the POSCO New Songdo City Tower 1A in Incheon, South Korea with 64 stories and 236 meters in height. An eigenvalue analysis of the tower resulted in $0.182$ and $0.162Hz$ in the $x, y$-directions, respectively, for the first natural frequencies, and $34,000tons$ for the first modal mass. The total mass of the bidirectional TLMD is $600tons$ that results from the effective mass ratio of about $1.76\%$.
+Figure~\ref{fig:5-1} shows the plan view of the TLMD used in this thesis. The bidirectional TLMD would be installed in the POSCO New Songdo City Tower 1A in Incheon, South Korea with 64 stories and 236 meters in height. An eigenvalue analysis of the tower resulted in $0.182$ and $0.162Hz$ in the $x, y$-directions, respectively, for the first natural frequencies, and $34,000tons$ for the first modal mass. The total mass of the bidirectional TLMD is $600tons$ that results from the effective mass ratio of about $1.76\%$.
 
 The experimental building and TLMD models were manufactured by applying the scaling factors given in Table~\ref{tab:5-1} to the first modal properties of the prototype tower. The building model with the parameters shown in Table~\ref{tab:5-2} was made by applying the scaling factors in Table\ref{tab:5-1} to the prototype building. Applying the scale $1/\sqrt{20}$ in frequency to the natural frequencies of a prototype model, $0.182$ and $0.162Hz$, gives $0.82$ and $0.73Hz$ in the $x-$ and $y-$directions, respectively. Also, the mass of a building structure is reduced by $4,250kg$. The stiffness of a building model is calculated to be $4250(kg)\times \left(2\pi \times 0.82(Hz)\right)^{2}\cong 110 000(N/m)$ in the $x-$direction and $4250(kg)\times \left(2\pi \times 0.73(Hz)\right)^{2} \cong 89,000(N/m)$ in the $y-$direction, respectively.
 
-\begin{figure}[ht]
+\begin{figure}[!ht]
 \centering
 \includegraphics[width=0.8\textwidth] {figure/5-1.eps}
 \caption{Concept of a TLMD}
 \label{fig:5-1}
 \end{figure}
 
-\begin{table}[ht]
+\begin{table}[!ht]
 \centering
 \begin{tabularx}{\textwidth}{@{}X|X|X@{}}
 \toprule[1pt]\midrule[0.3pt]
@@ -356,7 +356,7 @@ Acceleration & $LT^{-2}$ & $1:1$\\
 \label{tab:5-1}
 \end{table}
 
-\begin{table}[ht]
+\begin{table}[!ht]
 \centering
 \begin{tabularx}{\textwidth}{@{}X|X|X@{}}
 \toprule[1pt]\midrule[0.3pt]
@@ -370,7 +370,7 @@ Mass (kg) & $4,250$ & $4,250$\\
 \label{tab:5-2}
 \end{table}
 
-\begin{table}[ht]
+\begin{table}[!ht]
 \centering
 \begin{tabularx}{\textwidth}{@{}X|X|X@{}}
 \toprule[1pt]\midrule[0.3pt]
@@ -472,7 +472,7 @@ In order to verify the performance of the shaking table controller, a down-scale
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.8\textwidth] {figure/2-9.png}
+\includegraphics[width=0.8\textwidth] {figure/2-9.eps}
 \caption{Compensation result for the dynamic characteristic of shaking table}
 \label{fig:2-9}
 \end{figure}
@@ -548,7 +548,7 @@ The only shear-type structural model without the upper TLCD shown in Figure~\ref
 
 The difference between the conventional test method and hybrid testing method is that the upper TLMD is adopted as the experimental part, while the structural model is numerically calculated by a computer in the hybrid testing method, as shown in Figure~\ref{fig:5-12}. The control force acting between their interfaces is measured with a shear-type load cell which is mounted on the shaking table. Then, the measured force is fed-back to the numerical analysis part. Finally, the shaking table vibrates the upper experimental part with the responses calculated from the numerical analysis part.
 
-In this case, the shaking table is moved by the control signal sent from the control computer through DA channel of DAQ board. The amplitude and phase of the signal values measured at the shaking table, however, are different from the control signal sent from the control computer. In this paper, the inverse transfer function of a shaking table was designed through the definition of the transfer function of a shaking table, as shown in Figure~\ref{fig:5-13}. Then, a white-noise excitation test of the shaking table is carried out to compensate the dynamic characteristics between the shaking table and control signals, as shown in Figure~\ref{fig:5-14}. 
+In this case, the shaking table is moved by the control signal sent from the control computer through DA channel of DAQ board. The amplitude and phase of the signal values measured at the shaking table, however, are different from the control signal sent from the control computer. In this thesis, the inverse transfer function of a shaking table was designed through the definition of the transfer function of a shaking table, as shown in Figure~\ref{fig:5-13}. Then, a white-noise excitation test of the shaking table is carried out to compensate the dynamic characteristics between the shaking table and control signals, as shown in Figure~\ref{fig:5-14}. 
 
 Figure~\ref{fig:2-7} shows the inverse transfer function of the shaking table which was measured by the acceleration signal as an input data and the command signal as an output data. The measured inverse transfer function of the shaking table could be approximated by using a fifth-order linear filter represented by
 
@@ -1014,7 +1014,7 @@ Controlled&0.74&0.66&0.45&0.27\\ \bottomrule
 
 
 \subsection{Hybrid Testing Method of a Single Story Structure with a TLCD}
-At first, the conventional shaking table test with this TLCD shown in Figure~\ref{fig:4-4a} is performed to reduce the structural response. Two earthquake records with the maximum acceleration of $100gal$ due to the shaking table performance are used to excite the TLCD-structure system with control case. Then, the hybrid shaking table test is conducted with the experimental set-up shown in Figure~\ref{fig:4-4b}. For its experimental implementation, the identified structural parameters are reflected in the numerical part expressed by the shaded region in the integrated controller shown in Figure~\ref{fig:4-3}. The continuous filters in the figure are converted into discrete ones with a time step of 0.01 sec in the actual implementation of the experiment. Figure~\ref{fig:4-5} compare the controlled accelerations experimentally measured by implementing the conventional and the hybrid testing method in both time and frequency domain, respectively. The validity of the hybrid testing method performed in this paper is verified from the fact that the experimental results from two methods well coincide with each other on the whole.
+At first, the conventional shaking table test with this TLCD shown in Figure~\ref{fig:4-4a} is performed to reduce the structural response. Two earthquake records with the maximum acceleration of $100gal$ due to the shaking table performance are used to excite the TLCD-structure system with control case. Then, the hybrid shaking table test is conducted with the experimental set-up shown in Figure~\ref{fig:4-4b}. For its experimental implementation, the identified structural parameters are reflected in the numerical part expressed by the shaded region in the integrated controller shown in Figure~\ref{fig:4-3}. The continuous filters in the figure are converted into discrete ones with a time step of 0.01 sec in the actual implementation of the experiment. Figure~\ref{fig:4-5} compare the controlled accelerations experimentally measured by implementing the conventional and the hybrid testing method in both time and frequency domain, respectively. The validity of the hybrid testing method performed in this thesis is verified from the fact that the experimental results from two methods well coincide with each other on the whole.
 
 \begin{figure}[!ht]
 \centering
@@ -1269,7 +1269,7 @@ RMS value & $J_{3}$ & 0.23 & 0.31\\
 In this chapter, a substructuring technique, TLD-, TLCD- and TLMD-building structure hybrid testing method for the shaking table test was proposed. The proposed testing technique adopts the upper part of the whole structure or nonlinear control devices as the experimental substructure, which corresponds to a physical test model. The lower part of the whole structure or whole building structure is modeled numerically. In order to verify the validity and accuracy of the proposed technique, a shaking table test was conducted. The result of the study can be summarized as follows.
 \begin{enumerate}
 \item To reduce the distortion of the interface acceleration, the inverse transfer function of the shaking table was identified, and its state space realization was implemented in the shaking table controller.
-\item In this paper, the linear transfer function approach for controlling the motion of a shaking table was considered to experimentally verify the proposed method for a linear experimental part. However, this approach would be inappropriate in a coupled non-linear system leading to experimental instability. Therefore, in such case, the controller using the inverse transfer function of shaking table, shown in Figure~\ref{fig:2-11}, would be modified to compensate an experimental instability.
+\item In this thesis, the linear transfer function approach for controlling the motion of a shaking table was considered to experimentally verify the proposed method for a linear experimental part. However, this approach would be inappropriate in a coupled non-linear system leading to experimental instability. Therefore, in such case, the controller using the inverse transfer function of shaking table, shown in Figure~\ref{fig:2-11}, would be modified to compensate an experimental instability.
 \item The interface force between the experimental and numerical substructures was obtained using only acceleration measurement and mass information so that high-capacity loads cell and installation jigs are not required in the substructuring technique.
 \item The proposed method basing the interface force measurement on acceleration measurements from an experimental substructure is partially available only when the mass distribution is discrete - for example, this technique would be applicable to the TMD as an experimental part. Also, the interface force measurement using force transducers is required to perform the proposed method when wind forces are applied to the experimental substructure.
 \item Experimental results demonstrate that the proposed substructuring technique can reproduce the dynamic behavior of the assumed whole structure.
