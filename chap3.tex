@@ -15,7 +15,7 @@ In this section, simulation of wind-induced responses of a building structure us
 \end{figure}
 
 \subsection{Force of actuator}
-The state space form equation of a structure excited by wind load $f$ and the shaker generated force $u$ of size $r$ is as follows.
+The state-space form equation of a structure excited by wind load $f$ and the shaker generated force $u$ of size $r$ is as follows.
 
 \begin{equation}
 \begin{aligned}
@@ -25,7 +25,7 @@ y &= \matr{C}\matr{z}+\matr{D}_{f}f+\matr{D}_{u}u
 \label{eq:6-1}
 \end{equation}
 
-where, $z$ is the state vector and $y$ is the output vector of size $m$. The output transfer function to $f$ or $u$ is given by
+where $z$ is the state vector and $y$ is the output vector of size $m$. The output transfer function to $f$ or $u$ is given by
 
 \begin{equation}
 \begin{aligned}
@@ -45,7 +45,7 @@ where the scalar $s$ is a complex variable $j\omega$ . The inverse of $\matr{T}_
 \label{eq:6-3}
 \end{equation}
 
-when $r$ is smaller than $m$, the number of structural responses which can be modulated by $u$ is restricted to $r$ and target structural response should be selected. The Laplace transform of input realizing the target response $\bar{y}$ of size $r$ is
+when $r$ is smaller than $m$, the number of structural responses which can be modulated by $u$ is restricted to $r$, and target structural response should be selected. The Laplace transform of input realizing the target response $\bar{y}$ of size $r$ is
 
 \begin{equation}
 \begin{aligned}
@@ -58,7 +58,7 @@ when $r$ is smaller than $m$, the number of structural responses which can be mo
 
 where, $\hat{\matr{T}}_{yu}^{-1}$ is a sub-matrices of $\matr{T}_{yu}^{-1}$ is constructed by extracting the columns in $\matr{T}_{yu}^{-1}$ corresponding to the target response.
 
-\subsubsection{Filter and evelop function}
+\subsubsection{Filter and envelope function}
 The transfer function of structural response may have frequency intervals in which the magnitude is as small as zero, and in those intervals, the magnitude of the inverse transfer function increases infinitely. Because the input force is calculated by the product of the inverse transfer function and the output signal, significant input force may be calculated in order to realize the small magnitude of output components corresponding to the intervals. This force implies that the shaking system becomes very sensitive to the slight frequency variation of the output signal resulting from measurement noise and spectral leakage which is inevitable in signal processing using discrete Fourier transform, and then unnecessarily high input energy excites unexpected frequency response such that target response may not be induced. Particularly, low-frequency component leads to a large stroke of the shaker. In this chapter, following band-stop filter (BSF) using cosine function is used to prevent the unexpected frequency response from occurring.
 
 \begin{equation}\label{eq:6-5}
@@ -93,7 +93,7 @@ In discrete Fourier transform dealing with the finite duration discrete signal a
 \subsection{Numerical Example}
 \subsubsection{76 story wind-induced benchmark buildings}
 
-The wind-induced response simulating actuator is applied to a 76-story 306 meters office tower benchmark building which is slender with a height to width ratio of $306.1/42= 7.3$. Because the deterministic across-wind load data is given through wind tunnel tests for this benchmark building, the force of the actuator realizes target across-wind induced structural response can be calculated using Eq.~\eqref{eq:6-4}. In order to reduce numerical computation time, a 23 degree of freedom (DOF) state reduced-order system model proposed by \citet{yang2004benchmark}. is used in this thesis. The wind load vector is modeled physically by lumping wind forces on adjacent floors at the locations that correspond to the 23 DOF model. Figures~\ref{fig:6-3a},~\ref{fig:6-3b} shows the plan view and elevation view of the 76th benchmark building and Figures~\ref{fig:6-3c},~\ref{fig:6-3d} show the mode shape of first three mode of the structure and time history of wind-load.
+The wind-induced response simulating actuator is applied to a 76-story 306 meters office tower benchmark building which has slender with a height to width ratio of $306.1/42= 7.3$. Because the deterministic across-wind load data is given through wind tunnel tests for this benchmark building, the force of the actuator realizes target across-wind induced structural response can be calculated using Eq.~\eqref{eq:6-4}. In order to reduce numerical computation time, a 23 degree of freedom (DOF) state reduced-order system model proposed by \citet{yang2004benchmark}. is used in this thesis. The wind load vector is modeled physically by lumping wind forces on adjacent floors at the locations that correspond to the 23 DOF model. Figures~\ref{fig:6-3a},~\ref{fig:6-3b} shows the plan view and elevation view of the 76th benchmark building and Figures~\ref{fig:6-3c},~\ref{fig:6-3d} show the mode shape of first three mode of the structure and time history of wind-load.
 
 \begin{figure}[!ht]
 \centering
@@ -118,7 +118,7 @@ The wind-induced response simulating actuator is applied to a 76-story 306 meter
 \end{figure}
 
 \subsection{Error evaluation criteria}
-In order to verify the effectiveness of proposed method through the comparison between the wind and actuator induced structural responses, two error criteria are considered in time and frequency domains, respectively.
+To verify the effectiveness of proposed method through the comparison between the wind and actuator induced structural responses, two error criteria are considered in time and frequency domains, respectively.
 In time domain, the normalized tracking error is defined as 
 
 \begin{equation}\label{eq:6-8}
@@ -154,8 +154,8 @@ Figures~\ref{fig:6-4a} and \ref{fig:6-4b} show the transfer function of the 75th
 \label{fig:6-4}
 \end{figure}
 
-Figure~\ref{fig:6-5} shows the frequency response function and the time history of the actuator force obtained without using a filter when the target response is acceleration or displacement of the 75th floor. It is known from Figure~\ref{fig:6-5} that much larger force are required for the shaker to achieve the target displacement than acceleration response, and furthermore there exist high-frequency components in Figure~\ref{fig:6-4b}, which result in high-speed switching of control force as shown in Figure~\ref{fig:6-5b}. In practice, hydraulic actuators popular in civil engineering structures is not suitable for this undesirable chattering problem which causes spillover instability in higher modes, and acceleration response concerned with serviceability criteria is more critical for such high-rise building excited by wind load as this benchmark building than displacement. 
-Figure~\ref{fig:6-6} shows the comparison between the frequency responses of wind and LMS induced 75th-floor acceleration and displacement when the target response is 75th displacement. It is obviously shown that the wind and LMD induced displacement coincide well with each other while acceleration responses are very different. Based upon the observation in Figure~\ref{fig:6-5} and  \ref{fig:6-6}, only acceleration response is considered as target response for calculating LMD force reproducing wind induced displacement as well as acceleration in this thesis.
+Figure~\ref{fig:6-5} shows the frequency response function and the time history of the actuator force obtained without using a filter when the target response is acceleration or displacement of the 75th floor. It is known from Figure~\ref{fig:6-5} that much larger force is required for the shaker to achieve the target displacement than acceleration response, and furthermore there exist high-frequency components in Figure~\ref{fig:6-4b}, which result in high-speed switching of control force as shown in Figure~\ref{fig:6-5b}. In practice, hydraulic actuators popular in civil engineering structures are not suitable for this undesirable chattering problem which causes spillover instability in higher modes, and acceleration response concerned with serviceability criteria is more critical for such high-rise building excited by wind load as this benchmark building than displacement. 
+Figure~\ref{fig:6-6} shows the comparison between the frequency responses of wind and LMS induced 75th-floor acceleration and displacement when the target response is 75th displacement. It is apparently demonstrated that the wind and LMD induced displacement coincide well with each other while acceleration responses are very different. Based upon the observation in Figure~\ref{fig:6-5} and  \ref{fig:6-6}, only acceleration response is considered as target response for calculating LMD force reproducing wind induced displacement as well as acceleration in this thesis.
 
 \begin{figure}[!ht]
 \centering
@@ -185,7 +185,7 @@ Figure~\ref{fig:6-6} shows the comparison between the frequency responses of win
 \label{fig:6-6}
 \end{figure}
 
-Numerical analyses are conducted with/without using the filter and envelope function for different target responses. Table~\ref{tab:6-1} lists the cut-off frequencies used for canceling previously mentioned undesirable amplification effect by the zero in the inverse transfer function of each target response. Envelope function with $t_{1}=100$ second and $t_{2}=100$ second is applied.
+Numerical analyses are conducted with/without using the filter and envelope function for different target responses. Table~\ref{tab:6-1} lists the cut-off frequencies used for canceling undesirable amplification effect by the zero in the inverse transfer function of each target response as mentioned in previous section. Envelope function with $t_{1}=100$ second and $t_{2}=100$ second is applied.
 
 \begin{table}[ht]
 \centering
@@ -305,7 +305,7 @@ and considering no wind-load input, the equation of motion of the building can b
 
 where $\matr{B}_{t}$ is position vector of floor installed ATMD, $\matr{M}_{s}$, $\matr{C}_{s}$ and $\matr{K}_{s}$ is the mass, damping coefficient and stiffness matrix of the structure and $m_{t}$, $c_{t}$ and $k_{t}$ is the mass, damping coefficient and stiffness of the ATMD. 
 
-Figure~\ref{fig:6-10a} shows the transfer function of the 75th-floor acceleration to the absolute acceleration the ATMD. No zero point is observed in the vicinity of the first modal frequency unlike the case for LMS, which indicates that band-stop filter is not required for preventing the ATMD to excite the unexpected frequency response. Figure~\ref{fig:6-10b} shows the frequency response of the actuator force of the ATMD and Figure~\ref{fig:6-10c} and \ref{fig:6-10d} show the frequency and time responses of the effective force applied to the structure by the ATMD.
+Figure~\ref{fig:6-10a} shows the transfer function of the 75th-floor acceleration to the absolute acceleration the ATMD. No zero point is observed in the vicinity of the first modal frequency unlike the case for LMS, which indicates that band-stop filter is not required for preventing the ATMD to excite the unexpected frequency response. Figure~\ref{fig:6-10b} shows the frequency response of the actuator force of the ATMD and Figure~\ref{fig:6-10c} and \ref{fig:6-10d} show the frequency and time responses of the sufficient force applied to the structure by the ATMD.
 
 \begin{figure}[!ht]
 \centering
@@ -363,7 +363,7 @@ All acceleration responses coincide well with each other, but in displacement re
 \label{fig:6-11}
 \end{figure}
 
-Figure~\ref{fig:6-12} shows the comparison between the frequency responses of 75th floor acceleration and it is observed that wind and ATMD induced responses show good agreement over all frequency range. 
+Figure~\ref{fig:6-12} shows the comparison between the frequency responses of 75th-floor acceleration, and it is observed that wind and ATMD induced responses show good agreement overall frequency range. 
 
 \begin{figure}[ht]
 \centering
@@ -372,7 +372,7 @@ Figure~\ref{fig:6-12} shows the comparison between the frequency responses of 75
 \label{fig:6-12}
 \end{figure}
 
-Figure~\ref{fig:6-13} shows the error distribution according to the floor of targeted acceleration response. From Figure~\ref{fig:6-13b} showing that $e_{f}$ has the smallest value over floors when the target response is 75th floor acceleration, and the corresponding value ranges only between 1\% and 10\%, ATMD targeting 75th floor acceleration can be said to provide the best performance, and it can exactly reproduce the wind-induced acceleration response of all floors including targeted 75th floor.
+Figure~\ref{fig:6-13} shows the error distribution according to the floor of targeted acceleration response. From Figure~\ref{fig:6-13b} showing that $e_{f}$ has the smallest value over floors when the target response is 75th floor acceleration, and the corresponding value ranges only between 1\% and 10\%, ATMD targeting 75th floor acceleration can be said to provide the best performance, and it can precisely reproduce the wind-induced acceleration response of all floors including targeted 75th floor.
 
 \begin{figure}[!ht]
 \centering
@@ -390,7 +390,7 @@ Figure~\ref{fig:6-13} shows the error distribution according to the floor of tar
 
 \subsection{Comparison between LMS and ATMD}
 
-Figure~\ref{fig:6-14} shows time history of the actuator forces in LMS and ATMD excitation systems. The peak actuator force required for ATMD is larger than that for LMS. Figure~\ref{fig:6-15} compares the stroke of LMS with/without filter and ATMD. The stroke of LMS with filter is much smaller than those of LMS without filter and ATMD. This fact implies that ATMD requires large stroke to show good performance in wind-induced response realization and this stroke requirement should be checked in the design of ATMD.
+Figure~\ref{fig:6-14} shows time history of the actuator forces in LMS and ATMD excitation systems. The peak actuator force required for ATMD is larger than that for LMS. Figure~\ref{fig:6-15} compares the stroke of LMS with/without filter and ATMD. The stroke of LMS with filter is much smaller than those of LMS without filter and ATMD. This fact implies that ATMD requires massive stroke to show good performance in wind-induced response realization and this stroke requirement should be checked in the design of ATMD.
 
 \begin{figure}[ht]
 \centering
@@ -534,7 +534,7 @@ In this excitation system, both excitation and measurement signals are voltage s
 
 \subsection{System Identification}
 \subsubsection{White-noise Test}
-White noise vibration test was carried out by using broad-band random signals during 410sec. Both the excitation and measurement were performed by constructing a close-loop system to minimize the latency, by which time delay would be induced, and experimental data was acquired with a sampling rate of 100Hz. In order to reduce the unexpected noise in the experiment, a low-pass filter of 30Hz within the amplifier and 25Hz within the signal conditioner module was utilized, and the acquisition system was insulated with the reference signal ended (RSE) method for its grounding.
+White noise vibration test was carried out by using broad-band random signals during 410sec. Both the excitation and measurement were performed by constructing a close-loop system to minimize the latency, by which time delay would be induced, and experimental data were acquired with a sampling rate of 100Hz. In order to reduce the unexpected noise in the experiment, a low-pass filter of 30Hz within the amplifier and 25Hz within the signal conditioner module was utilized, and the acquisition system was insulated with the reference signal ended (RSE) method for its grounding.
 Figure~\ref{fig:7-5} shows the transfer function from the absolute acceleration of the HMD to the building accelerations. The lower fundamental modes of the structure are apparently shown.
 
 \begin{figure}[ht]
@@ -544,36 +544,7 @@ Figure~\ref{fig:7-5} shows the transfer function from the absolute acceleration 
 \label{fig:7-5}
 \end{figure}
 
-% \subsubsection{Modal parameter identification methods}
-% \subsubsubsection{Frequency domain methods}
-% The peak picking (PP) method using power spectral density (PSD) function is widely used in practice\citep{bendat1980engineering}. \citet{bao1991determination} proposed the three types of mode shape using power spectral density function as
 
-% \begin{equation}\label{eq:7-1}
-% \phi_{ak}^{(I)} = \frac{\hat{S}_{y_{a}y_{b}}(f_{k})}{\hat{S}_{y_{b}y_{b}}(f_{k})},
-% \phi_{ak}^{(II)} = \frac{\hat{S}_{y_{a}y_{a}}(f_{k})}{\hat{S}_{y_{a}y_{b}}(f_{k})},
-% \phi_{ak}^{(III)} = sign\left(\phi_{ak}^{(I)}\right)\left\{\frac{\hat{S}_{y_{a}y_{b}}(f_{k})}{\hat{S}_{y_{b}y_{b}}(f_{k})}\right\}^{1/2}
-% \end{equation}
-
-% where, $f_{k}$ is $k$th natural frequency, and $S_{y_{a}y_{a}}$ and $S_{y_{a}y_{b}}$ are the auto-spectral density function and the cross-spectral density function, respectively. The relationship between three type of mode shape before normalizing can be obtained as\citep{feng1998identification}.
-
-% \begin{equation}\label{eq:7-2}
-% \begin{aligned}
-% \phi_{ak}^{(I)} &\leq \phi_{ak} \leq \phi_{ak}^{(III)}\\
-% \phi_{ak}^{(I)} &\leq \phi_{ak}^{(III)} \leq \phi_{ak}^{III}
-% \end{aligned}
-% \end{equation}
-% where $\phi_{ak}$ is the true mode shape of the structure. The details for PP method about the mode shape with type (I) in Eq.~\eqref{eq:7-1} are described in the Appendix. A.
-
-% It is frequently address that it is very difficult or impossible to identify closely spaced mode using the PP. In this case, the frequency domain decomposigion (FDD) method that utilizes the singular value decomposition of the PSD matrix may be used to separate close modes\citep{brinker2000modal}. The method was originally used to extract the operational deflection shapes in mechanical vibrating systems\citep{otte1990operational}. The natural frequencies are estimated from the peaks of the PSD functions in the PP method. On the other hand, they are evaluated from singular value (SV) functions of the PSD matrix in the FDD method.
-
-% \begin{equation}\label{eq:7-3}
-% \matr{S}_{yy}(\omega) = \matr{U}(\omega)\matr{s}(\omega)\matr{V}(\omega)^{\top}
-% \end{equation}
-
-% where $\matr{S}_{yy}(\omega) \in \mathbb{R}^{Nm\times Nm}$ is the PSD matrix for output responses $\matr{y}(t) \in \mathbb{R}^{Nm}$, $\matr{s}(\omega) \in \mathbb{R}^{Nm \times Nm}$ is a diagonal matrix containing the singular values of its PSD matrix, and $\matr{U}(\omega)$, $\matr{V}(\omega) \in \mathbb{R}^{Nm \times Nm}$ are corresponding unitary matrices. $Nm$ is the number of measuring points. The general multi-DOF system can be transformed to the single DOF shape can be estimated as the first column vector of the unitary matrix of $\matr{U}$ since the first singular value may include the structural mode nearby its natural frequencies. However in the closely spaced modes, the peak of largest singular values at one natural frequency indicate the structural mode and adjacent second singular value mey indicate the close mode.
-
-% \subsubsubsection{Time domain methods}
-% The Ibrahim time domain (ITD) and the eigensystem realization algorithm (ERA) methods were originally formulated using the free decaying signals. However, to deal with the responsed to random excitations, they were extened to the ITD/RD (random decremental technique) by employing randomdec signature\citep{ibrahim1977method} and to the ERA/DC (data correlation) by using cross-correlation function\citep{juang1994applied}. Generally, the randomdec signal and the cross-correlation function are similar to free decaying signals. In this study, the ITD employing cross-correlation function, namely ITD/DC, is introduced since the processing time to obtain the randomdec signature is generally much more than that of cross-correlation function. The background to use cross-correlation function as an alternative of free decaying signal is described in the Appendix B. A column of the correlation matrix associated with a reference point is used in the ITD/DC, while the whole matrix may be processed in the ERA/DC. The stochasting subspace identification (SSI) method utilizing the Hankel matrix of the correlation function block\citep{van2012subspace} can be classifed into the SSI-BR (balanced realization) and the SSI-CVA(canonical variate analysis) depending on the construction method of the Hankel amtrix\citep{hermans1999modal}. It is very interesting to note that the SSI/BI is basically same to the ERA/DC except for the realization step. It is very important to detemine the optimal model order in the ERA and the SSI methods. There are several approaches to select the optimal model order. However, the stabilization chart may be very stable modes can be determined. Figure 2.2 and Table~\ref{tab:7-2} show the stabilization chart and the estimated results for Unison Modal Tower by using the SSI/BR method. In the stabilization chart, there are three identified modes: noise mode, unstable mode, and stable mode. In this study, the noise modes were classified by using the damping ratio greater than 50\%, and the stable modes are determined that the comparisons of the several mode with small frequency difference(0.5\% in this study), and high modal assurance criteria\citep{ewins1984modal} value (0.99 in this study). The reesult are compared with the peaks of the first singular values by FDD method. It can be clearly observed that the stable modes are located at the peak in the FDD plot.
 
 \begin{table}[ht]
 \centering
@@ -621,7 +592,7 @@ J=\frac{1}{2}\left\| \matr{N}^{-1}\left(\matr{K}-\matr{K}_{a}\right)^{-1}\right\
 
 where, $\matr{M}_{a}$ and $\matr{K}_{a}$ are the analytically derived mass matrix and stiffness matrix, respectively, $\Phi_{m}$ is the measured eigenvector matrix, $\Lambda$ is a diagonal matrix of the measured eigenvalues and $\matr{N}$ is the appearance of the square root of the mass matrix $\matr{N} = \matr{M}_{a}^{1/2}$.
 
-In this thesis, as shown in Figure~\ref{fig:7-5}, the measured eigenvector is extracted from the measured modal data using respectively accurate the first and the second modal information. When the measured eigenvector matrix would be extracted, it could be extracted from the transfer function in case of modal resonance using Eq.~\eqref{eq:7-9} and the sign of the eigenvector are determined from the phase of the transfer function. Reinhorn et al. assumed that resonance responses of the each mode are dependent in case the modal frequencies are not adjacent each other and proposed equation of the transfer function, which is expressed as
+In this thesis, as shown in Figure~\ref{fig:7-5}, the measured eigenvector is extracted from the measured modal data using respectively accurate the first and the second modal information. When the measured eigenvector matrix would be extracted, it could be derived from the transfer function in case of modal resonance using Eq.~\eqref{eq:7-9} and the sign of the eigenvector are determined from the phase of the transfer function. Reinhorn et al. assumed that resonance responses of the each mode are dependent in case the modal frequencies are not adjacent each other and proposed equation of the transfer function, which is expressed as
 
 \begin{equation} \label{eq:7-9}
 T_{ai}\left(\omega_{k}\right) = \phi_{ik}H_{ik}\left(\omega_{k}\right)\Gamma_{k}
@@ -709,13 +680,13 @@ where $\matr{z}$ is state variable vector size of $2n\times1$ and $\matr{y}$ is 
 \end{aligned}
 \end{equation}
 
-where the scalar $s$ is a complex variable $j\omega$. The inverse of $\matr{T}_{h}$ exists only if $r$ equals to $m$ and the Laplace transform of $\ddot{u}_{h}$ providing the identical output to the base acceleration induced one is detemined as
+where the scalar $s$ is a complex variable $j\omega$. The inverse of $\matr{T}_{h}$ exists only if $r$ equals to $m$ and the Laplace transform of $\ddot{u}_{h}$ providing the identical output to the base acceleration induced one is determined as
 
 \begin{equation}\label{eq:7-13}
 \matr{U}_{h}(s) = \matr{T}_{h}^{-1}\matr{Y}_{h}(s) = \matr{T}_{h}^{-1}\matr{Y}_{b}(s) = \matr{T}_{h}^{-1}\matr{T}_{b}\matr{U}_{b}(s)
 \end{equation}
 
-when $r$ is smaller than $m$, the number of structural responses which can be modulated by $\ddot{u}_{h}$ is restricted to $r$ and target structural response should be selected. The Laplace transform of input realizing the target response $\bar{y}$ with size of $r$ is
+when $r$ is smaller than $m$, the number of structural responses which can be modulated by $\ddot{u}_{h}$ is restricted to $r$, and target structural response should be selected. The Laplace transform of input realizing the target response $\bar{y}$ with size of $r$ is
 
 \begin{equation}\label{eq:7-14}
 \hat{U}_{h}(s) = \hat{T}_{h}^{-1}\hat{Y}_{h}(s) = \hat{T}_{h}^{-1}\hat{Y}_{b}(s) = \hat{T}_{h}^{-1}\hat{T}_{b}\hat{U}_{b}(s)
@@ -724,7 +695,7 @@ when $r$ is smaller than $m$, the number of structural responses which can be mo
 where, $\hat{T}_{h}^{-1}$ is a sub-matrices of $\matr{T}_{h}^{-1}$. $\hat{T}_{h}^{-1}$ is constructed by extracting the columns in $\matr{T}_{h}^{-1}$ corresponding to the target response.
 
 \subsubsection{Design of HMD controller}\label{sec:7-5-2}
-The excitation force is generated by the HMD to vibrate the structure in the elastic range. In order to control the HMD, the linear oscillating actuator (LOA) using electromagnetic force as an exciter was adopted. The mass of HMD is 1,500kg mass mounted in the 5th floor of the structure. The excitation force is generated by not the HMD acceleration of input voltage signal but 5th-floor absolute acceleration. Therefore, in order to compensate the distortion of the actual HMD acceleration against the HMD dynamics existing between the reference signal and the actual measured acceleration of the HMD, the inverse transfer function of the actual acceleration of HMD with respect to the command signal generated by the control computer is constructed and implemented in the HMD control computer as shown in Figure~\ref{fig:7-9}. First, the inverse transfer function, of which amplitude and phase are represented in Figure~\ref{fig:7-10} by the dashed line, is obtained experimentally. Then, the experimental inverse transfer function is approximated by a rational function for its implementation in the control computer. In this verification experiment, the inverse transfer function of the HMD is approximated using the command \code{invfreqs} in MATLAB\citep{coleman1999optimization}, which adopts the damped Gauss-Newton method for iterative search to minimize the sum of the squared error between the measured and the desired frequency response points\citep{dennis1983numerical}. The approximation result is given by the following linear filter and compared with the experimental one in Figure~\ref{fig:7-10}.
+The excitation force is generated by the HMD to vibrate the structure in the elastic range. In order to control the HMD, the linear oscillating actuator (LOA) using electromagnetic force as an exciter was adopted. The mass of HMD is 1,500kg mass mounted in the 5th floor of the structure. The excitation force is generated by not the HMD acceleration of input voltage signal but 5th-floor absolute acceleration. Therefore, in order to compensate the distortion of the actual HMD acceleration against the HMD dynamics existing between the reference signal and the actual measured acceleration of the HMD, the inverse transfer function of the actual acceleration of HMD with respect to the command signal generated by the control computer is constructed and implemented in the HMD control computer as shown in Figure~\ref{fig:7-9}. First, the inverse transfer function, of which amplitude and phase are represented in Figure~\ref{fig:7-10} by the dashed line, is obtained experimentally. Then, the experimental inverse transfer function is approximated by a rational function for its implementation in the control computer. In this verification experiment, the inverse transfer function of the HMD is approximated using the command \code{invfreqs} in MATLAB\citep{coleman1999optimization}, which adopts the damped Gauss-Newton method for the iterative search to minimize the sum of the squared error between the measured and the desired frequency response points\citep{dennis1983numerical}. The approximation result is given by the following linear filter and compared with the experimental one in Figure~\ref{fig:7-10}.
 
 \begin{figure}[ht]
 \centering
@@ -1013,9 +984,9 @@ In order to evaluate the performance of the MR damper-based semi-active control 
 
 \subsubsection{Severe events}
 \begin{itemize}
-   \item Kobe : N-S component of the 1995 Hyogo-ken Nanbu(Kobe) earthquake (magnitude 7.2) recorded at Kobe Japanese Meteorological Agency (JMA), Kobe, Japan (scaled down to 0.318g);
+   \item Kobe: N-S component of the 1995 Hyogo-ken Nanbu(Kobe) earthquake (magnitude 7.2) recorded at Kobe Japanese Meteorological Agency (JMA), Kobe, Japan (scaled down to 0.318g);
 
-   \item  Northridge : N-S component of the 1994 Northridge earthquake (magnitude 6.8) recorded at the Sylmarcounty Hospital parking lot in Sylmar, California, USA (scaled down to 0.227g);
+   \item  Northridge: N-S component of the 1994 Northridge earthquake (magnitude 6.8) recorded at the Sylmarcounty Hospital parking lot in Sylmar, California, USA (scaled down to 0.227g);
 \end{itemize}
 
 \subsubsection{Artificial eartuquake}
@@ -1141,7 +1112,7 @@ The passive control cases which provide specific constant voltage or current to 
 \subsubsection{Optimal Passive Case}
 As described above, passive control cases provide specific constant voltage or current to the MR damper. A passive-off case means a case of which voltage is always set to zero, and a passive-on case sets the voltage to the maximum level. Since the maximum current level of the manufactured MR damper used in the experiments is 3.0A, a series of passively controlled tests are conducted as increasing the current level from 0.0A to 3.0A by 0.5A to obtain the passive optimal case. Figures~\ref{fig:n3-12} and~\ref{fig:n3-13} show the normalized maximum displacement of the first floor and the normalized maximum acceleration among all the five floors. 
 
-It is demonstrated from Figure~\ref{fig:n3-12} that the performance in the maximum displacement gets better as the current input is increased. The passive-off case (i.e., 0.0A current input) shows the worst performance. In addition, the passive control cases with 1.0 or larger input current show the similar performance. As seen in Figure~\ref{fig:n3-13}, however, there is no trend in the performance of the normalized maximum acceleration. Under the moderate earthquakes and the artificial earthquake, most of the normalized values in maximum acceleration beneath 1.0 which means that the controlled seismic response might be reduced compared with that of the uncontrolled case. Nevertheless, most of the normalized values in acceleration are larger than 1.0 under the severe earthquake such as Kobe and Northridge earthquake. These results indicate that the MR damper-based passive control system is more suitable in moderate earthquake region than severe earthquake region for reducing the structural acceleration. From the observation as mentioned above, the passive control case with 1.0A can be considered as the optimal passive case. The results in cases of the passive optimal (1.0A) and passive on (3.0A) cases are compared with those in the cases of the other semi-active control algorithms.
+It is demonstrated from Figure~\ref{fig:n3-12} that the performance in the maximum displacement gets better as the current input is increased. The passive-off case (i.e., 0.0A current input) shows the worst performance. Also, the passive control cases with 1.0 or larger input current show the similar performance. As seen in Figure~\ref{fig:n3-13}, however, there is no trend in the performance of the normalized maximum acceleration. Under the moderate earthquakes and the artificial earthquake, most of the normalized values in maximum acceleration beneath 1.0 which means that the controlled seismic response might be reduced compared with that of the uncontrolled case. Nevertheless, most of the normalized values in acceleration are larger than 1.0 under the severe earthquake such as Kobe and Northridge earthquake. These results indicate that the MR damper-based passive control system is more suitable in moderate earthquake region than severe earthquake region for reducing the structural acceleration. From the observation as mentioned above, the passive control case with 1.0A can be considered as the optimal passive case. The results in cases of the passive optimal (1.0A) and passive on (3.0A) cases are compared with those in the cases of the other semi-active control algorithms.
 
 \begin{figure}[!ht]
 \centering
@@ -1164,7 +1135,7 @@ cases.}
 After the optimal passive case is determined, the full-scale five-story steel frame building structure is excited with previously mentioned external excitation loads using LAMD and controlled with various semi-active control algorithms, such as the clipped optimal control algorithm (CO), the LYAP, the MEDA, and the SNC, using MR dampers. The responses of each control case are measured and summarized in Figures~\ref{fig:n3-14} and~\ref{fig:n3-15}. Figure~\ref{fig:n3-14} shows the normalized maximum displacement of the first floor with various control algorithms and Figure~\ref{fig:n3-15} shows the normalized maximum acceleration among all the floors. From the experimental results, one can conclude as follows:
 
 The CO shows good performance in reducing both displacement and acceleration. For severe earthquakes and artificial earthquake, however, the performance becomes slightly worse than that of moderate earthquakes. In order to obtain the better control performance from the CO, it should be designed more appropriately by altering the weighting parameters for the specific purpose of a designer. The Lyapunov algorithm and the SNC algorithm reduce the acceleration response well enough, but they cannot show the good performance in reducing displacement. In these cases, the MR dampers generate less control force than in the clipped optimal algorithm case. The Lyapunov algorithm shows the worst performance among five algorithms in reducing acceleration under the artificial earthquake, and the SNC has a drawback in reducing displacement under the severe earthquakes.
-Note that among all the semi-active control algorithms, the MEDA shows the best performance in reducing displacement and the worst performance in reducing acceleration. As the MEDA makes the MR dampers generate larger force, the first floor is almost locked with the ground. This causes a considerable increase of the acceleration response of the first floor.
+Note that among all the semi-active control algorithms, the MEDA shows the best performance in reducing displacement and the worst performance in reducing acceleration. As the MEDA algorithm makes the MR dampers generate larger force than its capacity, the first floor is almost locked with the ground. This phenomenon causes a considerable increase of the acceleration response of the first floor.
 It is shown in some cases that maximum acceleration with the controller is larger than that of the uncontrolled case. It is considered that in the experiments, the unexpected electrical and the external environmental noises are involved in the feedback of measured responses, which deteriorates the acceleration control performance that is sensitive to those noises. The passive optimal and passive-on cases are one of the best control algorithms in reducing displacement of the structure except for the performance in reducing acceleration.
 The inter-story drift between the first and second floors can be larger than the displacement of the first floor when the damper force is quite large. Due to the limitation in measuring displacements, the inter-story drift of the second floor could not be measured. In order to verify the above observation, the inter-story drift of the second floor should be measured in the additional tests. The LYAP and SNC algorithms are appropriate in reducing accelerations of the structural system. On the other hand, the passive optimal and passive-on cases and the MEDA show excellent performance in reducing the first-floor displacement.
 
@@ -1199,5 +1170,5 @@ Figures~\ref{fig:n3-16} and~\ref{fig:n3-17} represent time history responses of 
 \end{figure}
 
 \subsection{Summary}
-The effectiveness of the MR damper-based control systems with various control algorithms for seismic protection of full-scale five-story steel frame building structure is experimentally verified in this investigation. An MR damper is designed by deriving a suboptimal design procedure considering optimization problem and magnetic analysis, and manufactured into 1.0ton MR damper in order to realize semiactive control systems.
+The effectiveness of the MR damper-based semi-active control systems with various control algorithms for seismic protection of full-scale five-story steel frame building structure is experimentally verified in this investigation. An MR damper is designed by deriving a suboptimal design procedure considering optimization problem and magnetic analysis, and manufactured into 1.0ton MR damper in order to realize semiactive control systems.
 In the experiments, the pseudo-earthquake testing method is used to excite the building structure as if it is subjected to earthquake loading. Under the four historical earthquakes and one filtered artificial earthquake, various semi-active control algorithms including the passive optimal case are evaluated and compared with one another. From the series of passively controlled tests which are conducted as increasing the current level, the passive case with the input current of 1.0A is chosen as the passive optimal system. From the experimental results, one can conclude that LYAP and SNC algorithms are appropriate in reducing accelerations of the structural system, and passive optimal case and MEDA shows excellent performance in reducing the first-floor displacement.
